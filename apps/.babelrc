@@ -1,0 +1,56 @@
+{
+    "presets": ["next/babel"],
+    "plugins": [
+        [
+            "module-resolver",
+            {
+                "root": ["./"],
+                "alias": {
+                    // "@assets": "./assets",
+                    "@pages": "./pages",
+                    "@components": "./components",
+                    // "@constants": "./constants",
+                    "@utils": "./utils",
+                    // "@root": "./",
+                    // "@redux": "./redux"
+                },
+                "extensions": [".js", ".scss"]
+            }
+        ]
+    ],
+    "env": {
+        "test": {
+            "presets": [
+                [
+                    "next/babel",
+                    {
+                        "preset-env": {
+                            "modules": "commonjs"
+                        }
+                    }
+                ]
+            ],
+            "plugins": [
+                ["@babel/plugin-proposal-decorators", { "legacy": true }],
+                ["@babel/plugin-proposal-class-properties", { "loose": true }],
+                ["styled-components", { "ssr": true, "displayName": false }],
+                [
+                    "module-resolver",
+                    {
+                        "root": ["./"],
+                        "alias": {
+                            // "@assets": "./assets",
+                            "@pages": "./pages",
+                            "@components": "./components",
+                            "@constants": "./constants",
+                            // "@utils": "./utils",
+                            "@root": "./",
+                            // "@redux": "./redux"
+                        },
+                        "extensions": [".js", ".scss"]
+                    }
+                ]
+            ]
+        }
+    }
+}

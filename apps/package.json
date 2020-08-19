@@ -1,0 +1,27 @@
+{
+  "name": "digiv-fe",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "node server.js",
+    "start:pm2": "pm2-runtime start ecosystem.config.js --env production"
+
+  },
+  "dependencies": {
+    "babel-plugin-module-resolver": "^4.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "next": "9.5.2",
+    "next-routes": "^1.4.2",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "next-compose-plugins": "^2.2.0",
+    "postcss-flexbugs-fixes": "^4.2.1",
+    "postcss-preset-env": "^6.7.0",
+    "tailwindcss": "^1.6.2"
+  }
+}
