@@ -1,12 +1,8 @@
 version: '3'
 services:
-  nextjs: 
-    build:
-      context: ./apps
-      dockerfile: Dockerfile 
-  nginx: 
-    build:
-      context: ./nginx
-      dockerfile: Dockerfile
+  fe:
+    container_name: digivapp-fe
+    image: digivapp.fe:latest
     ports:
       - 80:80
+    

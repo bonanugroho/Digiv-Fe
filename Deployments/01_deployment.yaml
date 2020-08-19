@@ -1,0 +1,39 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: digiv-fe
+  namespace: "<K8S_NS>"
+spec:
+  replicas: <REPLICAS>
+  template:
+    metadata:
+      labels:
+        app: digiv-fe
+    spec:
+      containers:
+        - name: digiv-fe
+          image: "<DIGIV_FE_IMAGE>"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              cpu: "<CPU_LIMIT>"
+              memory: "<MEM_LIMIT>"
+            requests:
+              cpu: "<CPU_REQUEST>"
+              memory: "<MEM_REQUEST>"
+          readinessProbe:
+            httpGet:
+              path: "/health"
+              port: 80
+            periodSeconds: 10
+            timeoutSeconds: 10
+            successThreshold: 1
+            failureThreshold: 10
+          livenessProbe:
+            httpGet:
+              path: "/health"
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 15
