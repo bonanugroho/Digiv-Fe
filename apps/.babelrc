@@ -6,7 +6,8 @@
             {
                 "root": ["./"],
                 "alias": {
-                    // "@assets": "./assets",
+                    "@assets": "./assets",
+                    "@styles": "./assets/styles",
                     "@pages": "./pages",
                     "@components": "./components",
                     // "@constants": "./constants",

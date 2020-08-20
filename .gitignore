@@ -4,6 +4,7 @@
 apps/node_modules
 apps/.pnp
 apps/.pnp.js
+node_modules
 
 # testing
 /coverage
@@ -28,7 +29,8 @@ apps/yarn-error.log*
 #3dvista 
 apps/public/static/media
 apps/public/static/*.mp4
-
+media
+*.mp4
 
 # local env files
 .env.local
