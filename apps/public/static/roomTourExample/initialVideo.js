@@ -5,7 +5,7 @@
 {   
 
     var deviceType = TDV.PlayerAPI.mobile ? 'mobile' : 'general';
-    var devicesUrl = {"general":"static/script_general.js?v=1597318843017"};
+    var devicesUrl = {"general":"static/roomTourExample/script_general.js?v=1597318843017"};
     var url = deviceType in devicesUrl ? devicesUrl[deviceType] : devicesUrl['general'];
     if(typeof url == "object") {
         var orient = TDV.PlayerAPI.getOrientation();
@@ -30,12 +30,13 @@ function loadTour()
     if(tour) return;
 
     var settings = new TDV.PlayerSettings();
+    settings.set(TDV.PlayerSettings.CURSORS_DIR_URL, 'static/roomTourExample/lib/cursors');
     settings.set(TDV.PlayerSettings.CONTAINER, document.getElementById('viewer'));
-    settings.set(TDV.PlayerSettings.WEBVR_POLYFILL_URL, 'static/lib/WebVRPolyfill.js?v=1597318843017');
-    settings.set(TDV.PlayerSettings.HLS_URL, 'static/lib/Hls.js?v=1597318843017');
+    settings.set(TDV.PlayerSettings.WEBVR_POLYFILL_URL, 'static/roomTourExample/lib/WebVRPolyfill.js?v=1597318843017');
+    settings.set(TDV.PlayerSettings.HLS_URL, 'static/roomTourExample/lib/Hls.js?v=1597318843017');
     settings.set(TDV.PlayerSettings.QUERY_STRING_PARAMETERS, 'v=1597318843017');
 
-    var devicesUrl = {"general":"static/script_general.js?v=1597318843017"};
+    var devicesUrl = {"general":"static/roomTourExample/script_general.js?v=1597318843017"};
 
     tour = new TDV.Tour(settings, devicesUrl);
     tour.bind(TDV.Tour.EVENT_TOUR_INITIALIZED, onVirtualTourInit);

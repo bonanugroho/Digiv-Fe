@@ -13,7 +13,7 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 				<link
 					rel='preload'
-					href='static/locale/en.txt?v=1597318843017'
+					href='static/roomTourExample/locale/en.txt?v=1597318843017'
 					as='fetch'
 					crossOrigin='anonymous'
 				/>
@@ -21,12 +21,12 @@ export default function Home() {
 				<meta name='theme-color' content='#33FF66' />
 				<link
 					rel='preload'
-					href='static/script.js?v=1597318843017'
+					href='static/roomTourExample/script.js?v=1597318843017'
 					as='script'
 				/>
-				<script src='static/lib/tdvplayer.js?v=1597318843017'></script>
-				<script src='static/script.js?v=1597318843017'></script>
-				<script src='static/initialVideo.js'></script>
+				<script src='static/roomTourExample/lib/tdvplayer.js?v=1597318843017'></script>
+				<script src='static/roomTourExample/script.js?v=1597318843017'></script>
+				<script src='static/roomTourExample/initialVideo.js'></script>
 			</Head>
 			<DefaultLayout>
 				<main className={styles.main}>

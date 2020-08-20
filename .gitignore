@@ -28,6 +28,7 @@ apps/yarn-error.log*
 #3dvista 
 apps/public/static/media
 apps/public/static/*.mp4
+media
 
 
 # local env files
