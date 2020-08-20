@@ -4,7 +4,7 @@ import PageCountDown from "@components/pages/countDown";
 export default function countDownPage() {
 	useEffect(() => {}, []);
 	return (
-		<div className="main">
+		<div className="min-w-full min-h-full">
 			<Head>
 				<title>Adira VirtualTour</title>
 			</Head>

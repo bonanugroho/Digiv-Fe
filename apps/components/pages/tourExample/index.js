@@ -1,6 +1,6 @@
 import React from "react";
 import DefaultLayout from "@components/layout/defaultLayout";
-import styles from "@styles/pages/tourexample.scss";
+import "@styles/pages/tourexample.scss";
 
 export default function home() {
 	return (
@@ -11,7 +11,7 @@ export default function home() {
 					<div className='preloacContainer2'></div>
 					<div className='preloacContainer3'></div>
 				</div>
-				<div id='viewer' className={styles.viewer}></div>
+				<div id='viewer' className="view"></div>
 			</main>
 		</DefaultLayout>
 	);
