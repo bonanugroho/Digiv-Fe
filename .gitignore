@@ -29,7 +29,7 @@ apps/yarn-error.log*
 apps/public/static/media
 apps/public/static/*.mp4
 media
-
+*.mp4
 
 # local env files
 .env.local
