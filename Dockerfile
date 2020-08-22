@@ -25,7 +25,7 @@ COPY apps/ ./
 RUN pip3 install git+https://github.com/Supervisor/supervisor && \
     yarn install && \
     yarn cache clean && \
-    yarn build
+    yarn build:prod
 
 COPY supervisord.conf ./
 
