@@ -4,7 +4,7 @@ metadata:
   name: digiv-fe
   namespace: "<K8S_NS>"
 spec:
-  replicas: <REPLICAS>
+  replicas: 1
   template:
     metadata:
       labels:
@@ -18,11 +18,11 @@ spec:
             - containerPort: 80
           resources:
             limits:
-              cpu: "<CPU_LIMIT>"
-              memory: "<MEM_LIMIT>"
+              cpu: "300m"
+              memory: "300Mi"
             requests:
-              cpu: "<CPU_REQUEST>"
-              memory: "<MEM_REQUEST>"
+              cpu: "300m"
+              memory: "300Mi"
           readinessProbe:
             httpGet:
               path: "/health"
