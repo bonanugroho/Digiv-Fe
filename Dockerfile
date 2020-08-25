@@ -1,7 +1,10 @@
 FROM nginx:1.18-alpine
 
+ARG service 
+
 # Set working directory
 WORKDIR /usr/app
+
 
 RUN apk update && \
     apk add --no-cache git \
@@ -20,14 +23,23 @@ RUN apk update && \
                        nodejs --repository="http://dl-cdn.alpinelinux.org/alpine/edge/community" \
                        tzdata
 
-COPY apps/ ./
+
+# COPY  ./ /usr/app
+
+COPY ${service} ./${service}
+
+COPY react-components-libs ./react-components-libs
+
+COPY lerna.json package.json ./
+
 
 RUN pip3 install git+https://github.com/Supervisor/supervisor && \
     yarn install && \
+    yarn transpile && \
     yarn cache clean && \
-    yarn build:prod
+    yarn workspace @digivfe/${service} build:prod
 
-COPY supervisord.conf ./
+COPY _build/Supervisord/${service}.conf ./supervisor.conf
 
 RUN mkdir -p /var/log/supervisor
 
@@ -36,10 +48,10 @@ RUN rm /etc/nginx/conf.d/*
 
 # Copy config files
 # *.conf files in "conf.d/" dir get included in main config
-COPY ./default.conf /etc/nginx/conf.d/
+COPY _build/default.conf /etc/nginx/conf.d/
 
 # Expose the listening port
 EXPOSE 80
 
 # Launch NGINX
-CMD [ "supervisord", "-c", "supervisord.conf" ]
+ENTRYPOINT  [ "supervisord", "-c", "supervisor.conf" ]

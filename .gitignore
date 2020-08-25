@@ -1,34 +1,36 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-apps/node_modules
-apps/.pnp
-apps/.pnp.js
+digiv-ui/node_modules
+digiv-ui/.pnp
+digiv-ui/.pnp.js
 node_modules
+dist 
+.next
 
 # testing
 /coverage
 
 # next.js
-apps/.next/
-apps/out/
+digiv-ui/.next/
+digiv-ui/out/
 
 # production
 apps/build
 
 # misc
-apps/.DS_Store
+digiv-ui/.DS_Store
 *.pem
 
 # debug
-apps/npm-debug.log*
-apps/yarn-debug.log*
-apps/yarn-error.log*
+digiv-ui/npm-debug.log*
+digiv-ui/yarn-debug.log*
+digiv-ui/yarn-error.log*
 
 
 #3dvista 
-apps/public/static/media
-apps/public/static/*.mp4
+digiv-ui/public/static/media
+digiv-ui/public/static/*.mp4
 media
 *.mp4
 
