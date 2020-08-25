@@ -5,7 +5,7 @@ services:
     image: digivfe/digiv-ui:latest
     ports:
       - 80:80
-    digiv-ui:
+    digiv-chat-ui:
       container_name: digivfe-chat-ui
       image: digivfe/digivfe-chat-ui:latest
       ports:
