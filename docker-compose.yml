@@ -1,8 +1,12 @@
 version: '3'
 services:
-  fe:
+  digiv-ui:
     container_name: digivapp-fe
-    image: digivapp.fe:latest
+    image: digivfe/digiv-ui:latest
     ports:
       - 80:80
-    
+    digiv-ui:
+      container_name: digivfe-chat-ui
+      image: digivfe/digivfe-chat-ui:latest
+      ports:
+        - 8081:80
