@@ -1,0 +1,38 @@
+{
+  "name": "@digivfe/react-component-libs",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "transpile": "env NODE_ENV=development babel ./src -d ./dist"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react",
+      [ "react-app",
+        { 
+            "absoluteRuntime":false 
+        }
+      ]
+    ],
+    "plugins": [
+      "inline-react-svg",
+      ["file-loader",
+        {
+          "extensions": ["png", "jpeg", "jpg", "gif"],
+          "context": "",
+          "limit": 200000
+        }
+      ],
+      "@babel/plugin-transform-modules-commonjs",
+      "@babel/plugin-transform-object-assign"
+    ]
+  },
+  "peerDependencies": {
+    "react": "^16.8.6"
+  }
+}
