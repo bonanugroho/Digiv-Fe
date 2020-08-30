@@ -1,5 +1,5 @@
 import firebase from 'firebase/app';
-import 'firebase/auth';
+import 'firebase/auth'
 const config = {
         apiKey: ENV.FIREBASE_API_KEY,
         authDomain:ENV.FIREBASE_AUTH_DOMAIN,
@@ -8,10 +8,18 @@ const config = {
         storageBucket: ENV.FIREBASE_STORAGE_BUCKET,
         messagingSenderId: ENV.FIREBASE_MESSAGING_SENDER_ID
     };
-if (!firebase.apps.length) {
-    firebase.initializeApp(config);
+try {
+    if(ENV.FIREBASE_API_KEY){
+        if (!firebase.apps.length) {
+            firebase.initializeApp(config);
+        }
+    }
+   
+} catch (error) {
+    
 }
-const auth = firebase.auth();
+
+const auth = ENV.FIREBASE_API_KEY ? firebase.auth() : {}
 export {
  auth,
  firebase

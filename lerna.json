@@ -2,7 +2,7 @@
   "packages": [
     "digiv-chat-ui",
     "digiv-ui",
-    "react-components-libs/"
+    "react-components/"
   ],
   "version": "independent",
   "npmClient": "yarn",

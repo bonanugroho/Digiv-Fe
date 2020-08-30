@@ -6,6 +6,7 @@ const handler = routes.getRequestHandler(app);
 const PORT = process.env.PORT || 8081;
 const postLogEs = require("./utils/elasticSearch")
 const compression = require('compression')
+require('dotenv').config()
 
 
 
