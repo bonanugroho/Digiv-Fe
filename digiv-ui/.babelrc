@@ -10,7 +10,8 @@
                     "@styles": "./assets/styles",
                     "@pages": "./pages",
                     "@components": "./components",
-                    // "@constants": "./constants",
+                    "@helper": "./helper",
+                    "@constants": "./constants",
                     "@utils": "./utils",
                     // "@root": "./",
                     // "@redux": "./redux"
@@ -40,11 +41,12 @@
                     {
                         "root": ["./"],
                         "alias": {
-                            // "@assets": "./assets",
+                            "@assets": "./assets",
                             "@pages": "./pages",
                             "@components": "./components",
                             "@constants": "./constants",
-                            // "@utils": "./utils",
+                            "@helper": "./helper",
+                            "@utisl": "./utisl",
                             "@root": "./",
                             // "@redux": "./redux"
                         },

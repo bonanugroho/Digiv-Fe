@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import DefaultLayout from "@components/layout/defaultLayout";
 import "@styles/pages/countdown.scss";
-import { DigivButton } from "@digivfe/react-component-libs";
+import { useRouter } from "next/router";
+import logoEve from '@assets/images/logo/logo-ave.png'
 
 export default function countDown() {
 	const [date, setDate] = useState("2020/09/09 23:55:00");
 	const [timeLeft, setTimeLeft] = useState([]);
 	const [interval, setStateInterval] = useState();
+	const router = useRouter();
 
 	const timeCounter = () => {
 		const currentDate = new Date(),
@@ -30,6 +32,9 @@ export default function countDown() {
 		));
 	};
 
+	const goToReservation = (e) => {
+		router.push("/pre-registration");
+	};
 	useEffect(() => {
 		setStateInterval(setInterval(timeCounter, 1000));
 		return () => {
@@ -39,7 +44,11 @@ export default function countDown() {
 
 	return (
 		<main className='countdown-content min-w-full min-h-full '>
-			<div className='h-screen flex  flex-col justify-center items-center'>
+			<div className='min-h-screen flex  flex-col justify-center items-center'>
+			<img
+					className=' countdonw-logo w-32 sm:w-16 md:w-48 lg:w-64'
+					src={logoEve}></img>
+				<h1 className='contdown-title'>Countdown</h1>
 				<div className='countdown-holder mb-16'>
 					<div className='countdown-row text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl'>
 						<TimeCountdown time={timeLeft} />
@@ -51,11 +60,11 @@ export default function countDown() {
 						<div className='countdown__item countdown__item_title'>Detik</div>
 					</div>
 				</div>
-				<img
-					className=' countdonw-logo w-32 sm:w-16 md:w-48 lg:w-64'
-					src='logo/adira_logo.svg'></img>
-				{/* <div class="bg-red-500 sm:bg-green-500 md:bg-blue-500 lg:bg-pink-500 xl:bg-teal-500"></div> */}
-				<DigivButton label="hahahah" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 text-xl"/>
+				<button
+					onClick={goToReservation}
+					className='bg-transparent hover:bg-white text-white font-semibold hover:text-yellow-500 py-2 px-4 border border-bg-white hover:border-transparent rounded text-xl'>
+					Pre Registration
+				</button>
 			</div>
 		</main>
 	);

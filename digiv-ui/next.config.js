@@ -2,49 +2,30 @@ const withPlugins = require("next-compose-plugins");
 const withCss = require("@zeit/next-css");
 const withSass = require("@zeit/next-sass");
 const tailwindCss = require("tailwindcss");
+const withWorkbox = require("next-with-workbox");
+const webpackBaseConfig = require('./config/webpack.base.conf')
+const webpack = require('webpack')
 
 const nextConfig = {
-	// webpack:  (config, options) => {
-	//     return webpackBaseConfig(config)
-	// },
-	// env: JSON.stringify(process.env),
-	// serverRuntimeConfig: {
-	//     ENV: process.env
-	// },
-	// publicRuntimeConfig: {
-	//     ENV: process.env
-	// },
+	webpack:  (config, options) => {
+		return webpackBaseConfig(config)
+	},
+	env: JSON.stringify(process.env),
 	pageExtensions: ["js"],
 	useFileSystemPublicRoutes: false,
 };
 
-const sassConfig = withSass({
-	webpack(config, options) {
-		const rules = [
-			{
-				test: /\.scss$/,
-				use: [
-					{
-						loader: "postcss-loader",
-						options: {
-							ident: "postcss",
-							plugins: [
-								tailwindCss("./tailwind.config.js"),
-							],
-						},
-					},
-					{ loader: "sass-loader" },
-				],
-			},
-		];
-		return {
-			...config,
-			module: {
-				...config.module,
-				rules: [...config.module.rules, ...rules],
-			},
-		};
+const workboxConfig = withWorkbox({
+	workbox: {
+		swSrc: "worker.js",
+		// .
+		// ..
+		// ... any other workbox-webpack-plugin.InjectManifest option
 	},
+	// .
+	// ..
+	// ... other Next.js config values
 });
 
-module.exports = withPlugins([sassConfig, nextConfig]);
+
+module.exports = withPlugins([ nextConfig,[withSass],[withCss] ]);
