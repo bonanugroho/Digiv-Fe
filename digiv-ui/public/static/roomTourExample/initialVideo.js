@@ -281,3 +281,17 @@ function getParams(params) {
 }
 
 window.loadVista = onLoad;
+function intitalButton() {
+    document.getElementById("testButton").addEventListener('click',function () {
+        window.callReactApps('gotoMomotor', {
+            type: 'show_dialog',
+            name: 'close_file'
+          });
+    })
+}
+
+
+
+// document.addEventListener('DOMContentLoaded', intitalButton);
+
+

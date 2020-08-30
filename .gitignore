@@ -2,11 +2,13 @@
 
 # dependencies
 digiv-ui/node_modules
+
 digiv-ui/.pnp
 digiv-ui/.pnp.js
 node_modules
 dist 
 .next
+digiv-ui/public/assets
 
 # testing
 /coverage
