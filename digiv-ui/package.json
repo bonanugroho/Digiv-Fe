@@ -7,8 +7,8 @@
     "dev:watch": "dotenv -e env.dev nodemon server.js",
     "build:prod": "dotenv -e .env.prod next build",
     "build:dev": "dotenv -e .env.dev next build",
-    "start:prod": "dotenv -e env.prod node server.js",
-    "start:tes": "dotenv -e env.prod node tes.js"
+    "start:prod": "dotenv -e .env.prod node server.js",
+    "start:tes": "dotenv -e .env.prod node tes.js"
   },
   "dependencies": {
     "@digivfe/react-component-libs": "1.0.0",

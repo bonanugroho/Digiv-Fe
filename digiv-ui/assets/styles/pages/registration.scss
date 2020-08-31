@@ -1,0 +1,29 @@
+.registration {
+    &-content {
+        background-color: #ef5734;
+        background-image: url('../../images/background/bg-login.jpg'); // background: linear-gradient(-25deg, #ff8a8a, #37e3ff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-size: cover;
+
+        @media (min-width:1024px) and (max-width: 1280px) {
+            background-size: cover;
+            background-position: 100% 100%;
+
+        }
+    }
+
+    &__container-form {
+        @media (min-width: 1280px) {
+            padding-bottom: 4vh;
+            /* margin-left: 10vw; */
+            justify-content: flex-end;
+            margin-right: 8vw;
+        }
+    }
+}
+
+.content-registration{
+    min-height: 464px;
+}

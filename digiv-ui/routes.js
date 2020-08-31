@@ -4,6 +4,6 @@ module.exports = routes()
     .add('homepage', '/', '')
     .add('countdown', '/countdown','countdown')
     .add('preRegistration', '/pre-registration','preRegistration')
-
-    .add('healthCheck', '/health','healthCheck')
-    
+    .add('login', '/login','login')    
+    .add('registration', '/registration','registration')    
+    .add('liveChat', '/live-chat','liveChat')    

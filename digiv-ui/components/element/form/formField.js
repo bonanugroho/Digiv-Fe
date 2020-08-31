@@ -1,7 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 import { Field } from "formik";
-import  Input  from "@components/element/input";
+import  {Input,TextArea}  from "@components/element/input";
 import  SelectAutoComplete  from "@components/element/selectAutoComplete";
 
 const FormField = (props) => {
@@ -22,6 +22,8 @@ const FormField = (props) => {
 		switch (inputType) {
 			case 'selectAutoComplete':
 				return SelectAutoComplete
+			case 'textArea':
+				return TextArea
 			case "input":
 			case "hidden":
 			case "password":
