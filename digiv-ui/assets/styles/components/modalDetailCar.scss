@@ -1,0 +1,80 @@
+@import "../helper/variable";
+
+.modal-car-content {
+    @media (min-width:$screen-sm) and (max-width:$screen-md) {
+      p{
+        font-size: 16px;
+      } 
+
+    }
+}
+
+.modal-content-img {
+
+    @media (min-width:$screen-sm) and (max-width:$screen-md) {
+        width: 100%;
+        max-height: 200px;
+        display: contents;
+    }
+
+    img {
+        max-width: 100%;
+        max-height: 400px;
+        object-fit: contain;
+        object-position: center;
+
+        @media (min-width:$screen-sm) and (max-width:$screen-md) {
+            max-height: 200px;
+            object-position: center;
+            object-fit: contain;
+            width: 100%;
+        }
+
+    }
+
+    @media (min-width:$screen-sm) and (max-width:$screen-md) {
+        max-height: 80%;
+    }
+
+}
+
+.modal-car-container {
+    @media (min-width:$screen-sm) and (max-width:$screen-md) {
+        max-height: 95vh;
+        max-width: 95vw;
+    }
+}
+.modal-car-header {
+    @media (min-width:$screen-sm) and (max-width:$screen-md) {
+        padding: 8px;
+
+        h3 {
+            font-size: 20px;
+        }
+    }
+
+}
+
+.modal-car-footer {
+    @media (min-width:$screen-sm) and (max-width:$screen-md) {
+        font-size: 12px;
+        padding: 10px;
+
+        button {
+            font-size: 12px;
+            padding: 10px 10px;
+        }
+    }
+
+    @media (max-width:$screen-sm) {
+        font-size: 12px;
+        padding: 10px;
+
+        button {
+            font-size: 12px;
+            padding: 10px 10px;
+        }
+        
+    }
+
+}

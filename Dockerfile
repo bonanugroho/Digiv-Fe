@@ -28,7 +28,7 @@ RUN apk update && \
 
 COPY ${service} ./${service}
 
-COPY react-components-libs ./react-components-libs
+COPY react-components ./react-components
 
 COPY lerna.json package.json ./
 

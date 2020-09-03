@@ -18,7 +18,7 @@ export default function headerNav() {
 						</svg>
 					</button>
 				</div>
-				<div className='w-full block flex-grow lg:flex lg:items-center lg:w-auto'>
+				<div className='w-full block flex-grow hidden md:hidden lg:flex lg:items-center lg:w-auto sm:hidden'>
 					<div className='text-sm lg:flex-grow'>
 						<a
 							href='#responsive-header'

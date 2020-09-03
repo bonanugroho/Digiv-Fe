@@ -7,7 +7,7 @@ import { loginValidation } from "../scheme/validation";
 
 export default function FormLogin(props) {
 	const {
-		onSubmitLogin,
+		onLoginSubmit,
 		errorLogin,
 	} = props;
 
@@ -28,7 +28,7 @@ export default function FormLogin(props) {
 						<Formik
 							initialValues={{ email: "", password: "" }}
 							validationSchema={loginValidation}
-							onSubmit={onSubmitLogin}>
+							onSubmit={onLoginSubmit}>
 							{({ values, resetForm, handleSubmit }) => (
 								<form onSubmit={handleSubmit}>
 									<FormField

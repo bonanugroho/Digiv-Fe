@@ -10,6 +10,7 @@ const digivApiServices = () => {
         baseURL: ENV.API_URL,
         timeout: 60000,
     }
+    // console.log(API_BASE_CONFIG)
 
     const cancelToken = axios.CancelToken.source();
 

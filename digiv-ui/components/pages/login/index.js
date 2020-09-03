@@ -1,14 +1,18 @@
 import React, { useState, useContext } from "react";
 import "@styles/pages/login.scss";
 import FormLogin from "./view/formLogin";
-import ModalLoading from "@components/element/modalLoading";
+import ModalLoading from "@components/element/modalLoading"
 import logoEve from "@assets/images/logo/logo-ave.png";
+import { useRouter } from "next/router";
 
 export default function login() {
     const [showModalLoading, setShowModalLoading] = useState(false);
-    const [errorLogin,setErrorLogin ] = useState({})
+	const [errorLogin,setErrorLogin ] = useState({})
+	const router = useRouter();
+
 	const onLoginSubmit = (values) => {
-		console.log(values);
+		console.log(values)
+		router.push("/main-hall");
 	};
 
 	return (

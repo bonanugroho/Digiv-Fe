@@ -3,14 +3,11 @@ const next = require("next");
 const routes = require("./routes");
 const app = next({ dev: process.env.mode === 'development'  });
 const handler = routes.getRequestHandler(app);
-const PORT = 80;
+const PORT = 8081;
 const postLogEs = require("./utils/elasticSearch")
 const compression = require('compression')
+require('dotenv').config()
 
-
-
-
-	
 
 // With express
 const express = require("express");

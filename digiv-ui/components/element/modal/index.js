@@ -4,3 +4,5 @@ export {
     ModalContext,
     ModalProvider
 } from './modal.context'
+
+export { default as ModalDetailCar } from "./modalDetailCar";

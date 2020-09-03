@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 import "@styles/pages/preRegistration.scss";
-import { auth, firebase } from "@helper/firebase";
+import { auth, firebase } from "@utils/firebase";
 import { useRouter } from "next/router";
 
 import FormRegister from "./view/formRegister";
-import FormReservation from "./view/FormReservation";
+import FormReservation from "./view/formReservation";
 import digivApiServices from "@utils/httpRequest";
 import ModalLoading from "@components/element/modalLoading";
 import { ModalAlert, ModalContext } from "@components/element/modal";

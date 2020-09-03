@@ -1,7 +1,5 @@
 import React, { useState, useContext } from "react";
 import "@styles/pages/registration.scss";
-import { auth, firebase } from "@helper/firebase";
-import { useRouter } from "next/router";
 
 import FormRegistration from "./view/formRegistration";
 import digivApiServices from "@utils/httpRequest";
