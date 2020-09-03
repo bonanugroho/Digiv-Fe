@@ -40,7 +40,7 @@ export default function MainHall() {
 		<DefaultLayout>
 			<>
 				<main id='virutal-main' className='booth-video-main'>
-					<div id='video-booth' class='' style={styleVideo}>
+					<div id='video-booth' className='' style={styleVideo}>
 						<video
 							playsInline='playsInline'
 							autoplay='autoplay'
@@ -51,13 +51,6 @@ export default function MainHall() {
 								type='video/mp4'
 							/>
 						</video>
-						<div class='tvc-link tvc1-link'></div>
-						<div class='tvc-link tvc2-link'></div>
-						<div class='agent-link agent1-link'></div>
-						<div class='agent-link agent2-link'></div>
-						<div class='agent-link agent3-link'></div>
-						<div class='agent-link agent4-link'></div>
-
 						<div
 							className='car-link mazda2-link'
 							onClick={onClickBoot}
