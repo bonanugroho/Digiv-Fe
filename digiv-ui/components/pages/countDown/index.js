@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import DefaultLayout from "@components/layout/defaultLayout";
 import "@styles/pages/countdown.scss";
 import { useRouter } from "next/router";
-import logoEve from '@assets/images/logo/logo-ave.png'
+import logoEve from "@assets/images/logo/logo-ave.png";
 
 export default function countDown() {
 	const [date, setDate] = useState("2020/09/09 23:55:00");
@@ -45,10 +45,13 @@ export default function countDown() {
 	return (
 		<main className='countdown-content min-w-full min-h-full '>
 			<div className='min-h-screen flex  flex-col justify-center items-center'>
-			<img
-					className=' countdonw-logo w-32 sm:w-16 md:w-48 lg:w-64'
-					src={logoEve}></img>
-				<h1 className='contdown-title'>Countdown</h1>
+				<div className="flex justify-center flex-col items-center">
+					<img
+						className='countdonw-logo w-16 sm:w-16 md:w-42 lg:w-48'
+						src={logoEve}></img>
+					<h1 className='contdown-title'>Countdown</h1>
+				</div>
+
 				<div className='countdown-holder mb-16'>
 					<div className='countdown-row text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl'>
 						<TimeCountdown time={timeLeft} />

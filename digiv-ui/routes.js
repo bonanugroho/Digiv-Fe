@@ -1,9 +1,12 @@
 const routes = require('next-routes')
 
 module.exports = routes()
-    .add('homepage', '/', '')
-    .add('countdown', '/countdown','countdown')
+    // .add('homepage', '/', '')
+    .add('countdown', '/','countdown')
     .add('preRegistration', '/pre-registration','preRegistration')
-
-    .add('healthCheck', '/health','healthCheck')
-    
+    .add('login', '/login','login')    
+    .add('registration', '/registration','registration')    
+    .add('liveChat', '/live-chat','liveChat')    
+    .add('mainHall', '/main-hall','mainHall')    
+    .add('booth', '/booth','booth')    
+    .add('boothVideo', '/booth-video','boothVideo')    

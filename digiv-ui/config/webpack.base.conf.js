@@ -21,7 +21,7 @@ module.exports = (config, options) => {
 			],
 		},
 		{
-			test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
+			test: /\.(eot|woff|woff2|ttf)$/,
 			use: {
 				loader: "url-loader",
 				options: {

@@ -2,8 +2,20 @@
 import "@styles/index.scss";
 import { useEffect } from "react";
 import { Workbox } from "workbox-window";
+import Router from "next/router";
+import { GTMPageView } from "@utils/gtm";
+import { config } from "@fortawesome/fontawesome-svg-core"; // 👈
+import "@fortawesome/fontawesome-svg-core/styles.css"; // 👈
+config.autoAddCss = false; // 👈// Import the CSS
 
 function MyApp({ Component, pageProps }) {
+	useEffect(() => {
+		const handleRouteChange = (url) => GTMPageView(url);
+		Router.events.on("routeChangeComplete", handleRouteChange);
+		return () => {
+			Router.events.off("routeChangeComplete", handleRouteChange);
+		};
+	}, []);
 	// useEffect(() => {
 	// 	if (
 	// 		!("serviceWorker" in navigator) ||

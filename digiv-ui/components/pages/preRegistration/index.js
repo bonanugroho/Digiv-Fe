@@ -1,18 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "@styles/pages/preRegistration.scss";
-import { auth, firebase } from "@helper/firebase";
+import { auth, firebase } from "@utils/firebase";
+import { useRouter } from "next/router";
+
 import FormRegister from "./view/formRegister";
-import FormReservation from "./view/FormReservation";
+import FormReservation from "./view/formReservation";
 import digivApiServices from "@utils/httpRequest";
 import ModalLoading from "@components/element/modalLoading";
+import { ModalAlert, ModalContext } from "@components/element/modal";
+
 import logoEve from "@assets/images/logo/logo-ave.png";
 
 export default function PreRegistration() {
 	const { digivApi } = digivApiServices();
+	const router = useRouter();
 	const [showModalLoading, setShowModalLoading] = useState(false);
 	const [dataUser, setDataUser] = useState(null);
 	const [errorRegistration, setErrorRegistration] = useState({});
 	const [errorReservation, setErrorReservation] = useState({});
+	const openModalContext = useContext(ModalContext);
 
 	const onClickSignInGoogle = () => {
 		setShowModalLoading(true);
@@ -32,33 +38,35 @@ export default function PreRegistration() {
 			.catch((err) => {
 				console.log(err);
 				setShowModalLoading(false);
+				openModal("error", "Gagal Mendapatkan Data Dari Google");
 			});
 	};
 
+	const openModal = async (type, message) => {
+		try {
+			await openModalContext({
+				type: type,
+				message: message,
+			});
+		} catch (error) {}
+	};
+
 	const onClickFacebook = () => {
-		console.log("tes");
 		const provider = new firebase.auth.FacebookAuthProvider();
 
 		auth
 			.signInWithPopup(provider)
 			.then(function (result) {
-				// This gives you a Facebook Access Token. You can use it to access the Facebook API.
-				const token = result.credential.accessToken;
-				// The signed-in user info.
 				const user = result.user;
-				console.log(result);
-				// ...
+				fetchCheckUser({
+					name: user.displayName,
+					email: user.email,
+					nomer_telp: user.phoneNumber,
+				});
 			})
 			.catch(function (error) {
-				// Handle Errors here.
-				const errorCode = error.code;
-				const errorMessage = error.message;
-				// The email of the user's account used.
-				const email = error.email;
-				// The firebase.auth.AuthCredential type that was used.
-				const credential = error.credential;
 				console.log(error);
-				// ...
+				openModal("error", "Gagal Mendapatkan Data Dari Facebook");
 			});
 	};
 
@@ -109,10 +117,16 @@ export default function PreRegistration() {
 			const {
 				data: { data, status_code },
 			} = checkUser;
+			if (status_code == -201) {
+				await openModalContext(
+					"success",
+					"Sukse untuk reservarsi,silahkan chek email anda untuk konfirmasi",
+				);
+				router.push("/countdown");
+			}
 		} catch (error) {
-			const data  = error.response?.data;
+			const data = error.response?.data;
 			let message = "error occured,pliss try again later";
-			console.log(data)
 
 			if (data) {
 				const { status_code } = data;
@@ -140,6 +154,13 @@ export default function PreRegistration() {
 
 	return (
 		<div className='font-sans antialiased bg-grey-lightest w-full h-full'>
+			<ModalAlert
+				type='error'
+				message='wah anda sukses'
+				onClickAlert={() => {
+					console.log("dfsdfsfs");
+				}}
+			/>
 			<div className='w-full  grid grid-cols-1  sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2'>
 				<div className='w-12/12 p-16 xl:w-4/12 flex justify-center  lg:justify-start xl:justify-start'>
 					<div>

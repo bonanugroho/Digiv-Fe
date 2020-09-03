@@ -4,9 +4,7 @@
         background-size: cover;
         text-align: center;
         background-repeat: no-repeat;
-        font-size: 0;
-        font-family: 'Poiret One', cursive;
-    
+        font-size: 0;    
         &:after {
         //   display: inline-block;
           content: ' ';
@@ -65,13 +63,25 @@
     height: auto;
     color: rgba(255, 255, 255, .95);
     background-image: url('../../images/background/bg-countdown.png');
-    padding: 3vh 2vw 3vh 2vw;
-    min-width: 64px;
-    margin: 16px;
     background-size: 100% 100%;
     display: flex;
+
     justify-content: center;
     align-items: center;
+    font-size: 72px;
+    font-weight: bold;
+    padding: 8px;
+    margin: 0 24px;
+    @media (min-width:1024px)  {
+      font-size: 72px;
+    }
+    @media (min-width:728px) and (max-width:1024px){
+      font-size: 42px;
+    }
+    @media (min-width:200px ) and (max-width:728px) {
+      font-size: 36px;
+    }
+
     &:after {
       position: absolute;
     //   font-size: 32px;

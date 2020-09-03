@@ -15,7 +15,7 @@ export default function FormRegistration(props) {
 	} = props;
 
 	return (
-		<div className=' w-10/12 md:w-8/12 lg:w-6/12 xl:w-6/2 content-reservation'>
+		<div className=' w-10/12 md:w-8/12 lg:w-8/12 xl:w-6/2 content-reservation'>
 			<div className='mx-auto w-full '>
 				<div className=' mx-auto w-full'>
 					<div className='py-4 px-8 text-black text-4xl font-bold text-white'>
@@ -75,7 +75,7 @@ export default function FormRegistration(props) {
 
 									<div className='flex items-center justify-center mt-8'>
 										<button
-											className=' w-4/12 bg-yellow-500 text-white font-bold py-2 px-4 rounded'
+											className=' w-full bg-yellow-500 text-white font-bold py-2 px-4 rounded'
 											type='submit'>
 											Daftar
 										</button>

@@ -1,15 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
-import Input from "@components/element/input";
+import { Input } from "@components/element/input";
 import { connect } from "formik";
 
-const SelectAutoComplete = (props) =>  {
+const SelectAutoComplete = (props) => {
 	const {
 		label,
 		field,
 		name,
 		objectValue,
 		placeholder,
-		disabled ,
+		disabled,
 		onChange,
 		formik,
 		initValue,
@@ -24,8 +24,8 @@ const SelectAutoComplete = (props) =>  {
 	const [optionData, setOptionData] = useState([]);
 	const [isShowOption, setShowOption] = useState(false);
 	const [valueAutocomplete, setValueAutocomplete] = useState({
-        id:'',
-        name:''
+		id: "",
+		name: "",
 	});
 	const handleClick = (e) => {
 		setShowOption(true);
@@ -37,18 +37,17 @@ const SelectAutoComplete = (props) =>  {
 		}
 	};
 
-	const onClickOption = (e,item,field) => {
-        
-        formik.setFieldValue(field, item.id)
-        setShowOption(false);
-        onSelectedOption(item)
-        setValueAutocomplete(item)
+	const onClickOption = (e, item, field) => {
+		formik.setFieldValue(field, item.id);
+		setShowOption(false);
+		onSelectedOption(item);
+		setValueAutocomplete(item);
 	};
 
 	const handleChange = (e) => {
 		const searchKeyword = e.target.value;
-        onChange(searchKeyword);
-        setValueAutocomplete({...valueAutocomplete,name: searchKeyword})
+		onChange(searchKeyword);
+		setValueAutocomplete({ ...valueAutocomplete, name: searchKeyword });
 	};
 	useEffect(() => {
 		document.addEventListener("click", handleDocumentClick);
@@ -64,19 +63,19 @@ const SelectAutoComplete = (props) =>  {
 				ref={selectedInputRef}
 				value={valueAutocomplete.id ? valueAutocomplete.id : ""}
 				readOnly
-                name={name}
-                {...field}
+				name={name}
+				{...field}
 			/>
 			<Input
 				name={name}
-                label={label}
-                autoComplete='off'
-                disabled={disabled}
-                placeholder={placeholder}
+				label={label}
+				autoComplete='off'
+				disabled={disabled}
+				placeholder={placeholder}
 				value={valueAutocomplete.name}
 				withLabel={withLabel}
 				onChange={(e) => handleChange(e)}
-				onClick={(e) => !disabled ? handleClick(e) : null}
+				onClick={(e) => (!disabled ? handleClick(e) : null)}
 			/>
 			{isShowOption && (
 				<div className='max-height-200 overflow-y-auto absolute w-full bg-white shadow-2xl z-10'>
@@ -96,6 +95,6 @@ const SelectAutoComplete = (props) =>  {
 			)}
 		</div>
 	);
-}
+};
 
-export default connect(SelectAutoComplete)
+export default connect(SelectAutoComplete);
