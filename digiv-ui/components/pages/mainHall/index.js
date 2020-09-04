@@ -3,28 +3,30 @@ import DefaultLayout from "@components/layout/defaultLayout";
 import "@styles/pages/mainHall.scss";
 import imageHall from "@assets/images/background/hall.jpg";
 import { useRouter } from "next/router";
+import { useVideoStyle } from "@helper/hooks";
 
 export default function MainHall() {
 	const router = useRouter();
+	const styleVideo = useVideoStyle();
+
 
 	const onClickBoot = (path) => {
 		router.push(path);
 	};
 	return (
 		<DefaultLayout>
-			<main className='main-hall'>
-				<div>
-					<img src={imageHall} />
-					<div className='main-hall__layer item-layer'>
-						<div
-							onClick={()=> onClickBoot('/booth')}
-							className='item-layer item-layer__1'></div>
-						<div
-							onClick={()=> onClickBoot('/booth-video')}
-							className='item-layer item-layer__2'></div>
+			<>
+				<main id='virutal-main' className='booth-video-main'>
+					<div id='video-booth' className='' style={styleVideo}>
+						<img src={imageHall}></img>
+						<div className='booth-mainHall__div-adira' onClick={()=>onClickBoot('/booth')}></div>
+						<div className='booth-mainHall__div-momotor' onClick={()=>onClickBoot('/booth-momotor')}></div>
+						<div className='booth-mainHall__div-momobil' onClick={()=>onClickBoot('/booth-momobil')}></div>
+						<div className='booth-mainHall__div-videoHall' onClick={()=>onClickBoot('/booth-video')}></div>
+
 					</div>
-				</div>
-			</main>
+				</main>
+			</>
 		</DefaultLayout>
 	);
 }

@@ -43,7 +43,7 @@ export default function MainHall() {
 					<div id='video-booth' className='' style={styleVideo}>
 						<video
 							playsInline='playsInline'
-							autoplay='autoplay'
+							autoPlay='autoplay'
 							muted='muted'
 							loop='loop'>
 							<source
