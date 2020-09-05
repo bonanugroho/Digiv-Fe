@@ -1,15 +1,41 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 export default function formReservation(props) {
-	const { onEndVideo, showVideo } = props;
+	const { onEndedVideo, showVideo } = props;
+
+	const variants = {
+		visible: {
+			display: "block",
+
+			opacity: 1,
+			transition: { duration: 1 },
+		},
+		hidden: {
+			opacity: 0,
+			transitionEnd: {
+				display: "none",
+			},
+			transition: { duration: 1 },
+		},
+	};
 	return (
 		<>
 			{showVideo && (
-				<div className='fullscreen-bg'>
-					<video loop muted autoPlay className='fullscreen-bg__video'>
-						<source src='video/bg-registration.mp4' type='video/mp4' />
-					</video>
-				</div>
+				<motion.div
+					initial='hidden'
+					animate={showVideo ? "visible" : "hidden"}
+					variants={variants}>
+					<div className='fullscreen-bg-information'>
+						<video
+							muted
+							autoPlay
+							className='fullscreen-bg-information__video'
+							onEnded={onEndedVideo}>
+							<source src='http://34.107.209.44/video/camp-dome.mp4' type='video/mp4' />
+						</video>
+					</div>
+				</motion.div>
 			)}
 		</>
 	);

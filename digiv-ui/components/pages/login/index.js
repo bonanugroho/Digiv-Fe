@@ -1,26 +1,131 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "@styles/pages/login.scss";
 import Tabs from "./view/tabs";
 import ModalLoading from "@components/element/modalLoading";
-
-import adiraRetangular from "@assets/images/logo/retangular-adira.png";
+import logoAve from "@assets/images/logo/logo-ave.png";
 import { useRouter } from "next/router";
+import digivApiServices from "@utils/httpRequest";
+import { ModalAlert, ModalContext } from "@components/element/modal";
 
 export default function login() {
-	const [showModalLoading, setShowModalLoading] = useState(false);
+	const [showModalLoading, setShowModalLoading] = useState(true);
+	const [errorRegistration, setErrorRegistration] = useState({});
+
 	const [errorLogin, setErrorLogin] = useState({});
 	const router = useRouter();
+	const openModalContext = useContext(ModalContext);
+	const { digivApi } = digivApiServices();
 
-	const onLoginSubmit = (values) => {
-		console.log(values);
-		router.push("/main-hall");
+	const onLoginSubmit = async (values) => {
+		setShowModalLoading(true);
+		try {
+			const checkUser = await digivApi.post(`api/auth/login`, {			
+				password: values.password,
+				email: values.email,
+			});
+			const {
+				data: { data, status_code },
+			} = checkUser;
+			setShowModalLoading(false);
+
+			if (status_code == 200) {
+				await openModalContext({
+					type: "success",
+					message:
+						"Sukses login",
+				});
+				router.push("/");
+			}
+		} catch (error) {
+			const data = error.response?.data;
+			let message = "error occured,pliss try again later";
+			setShowModalLoading(false);
+			if (data) {
+				const { status_code } = data;
+				switch (status_code) {
+					case 401:
+						message = "Password atau email anda salah";
+						break;
+					case 400:
+						message = "Data Tidak Valid,check data anda";
+						break;
+					case 500:
+						message = "Error Ocured ,please try again";
+						break;
+				}
+			}
+
+			setErrorLogin({
+				status: true,
+				message,
+			});
+		} finally {
+			setShowModalLoading(false);
+		}
 	};
+	const onSubmitRegistration = async (values) => {
+		setShowModalLoading(true);
+		try {
+			const checkUser = await digivApi.post(`api/auth/register`, {
+				city_id: values.city,
+				full_name: values.name,
+				password: values.password,
+				phone_no: "+62" + values.nomer_telp,
+				email: values.email,
+			});
+			const {
+				data: { data, status_code },
+			} = checkUser;
+			setShowModalLoading(false);
+
+			if (status_code == 201) {
+				await openModalContext({
+					type: "success",
+					message:
+						"Sukses untuk reservarsi,silahkan chek email anda untuk konfirmasi",
+				});
+				router.push("/");
+			}
+		} catch (error) {
+			const data = error.response?.data;
+			let message = "error occured,pliss try again later";
+			setShowModalLoading(false);
+			if (data) {
+				const { status_code } = data;
+				switch (status_code) {
+					case 409:
+						message = "Email Anda Sudah Pernah Terdaftar";
+						break;
+					case 400:
+						message = "Data Tidak Valid,check data anda";
+						break;
+					case 500:
+						message = "Error Ocured ,please try again";
+						break;
+				}
+			}
+
+			setErrorRegistration({
+				status: true,
+				message,
+			});
+		} finally {
+			setShowModalLoading(false);
+		}
+	};
+
+
+	useEffect(() => {
+		setTimeout(function () {
+			setShowModalLoading(false);
+		}, 1500);
+	}, []);
 
 	return (
 		<>
 			<div className='fullscreen-bg'>
 				<video loop muted autoPlay className='fullscreen-bg__video'>
-					<source src='video/bg-registration.mp4' type='video/mp4' />
+					<source src='http://34.107.209.44/video/bg-registration.mp4' type='video/mp4' />
 				</video>
 			</div>
 			<div className='relative font-sans antialiased bg-grey-lightest w-full h-full'>
@@ -29,11 +134,16 @@ export default function login() {
 						<div>
 							<img
 								className='w-32 xl:hidden lg:hidden sm:w-32 md:w-48 lg:w-64 '
-								src={adiraRetangular}></img>
+								src={logoAve}></img>
 						</div>
 					</div>
 					<div className='h-full  xl:min-h-screen lg:min-h-screen  w-12/12 flex justify-center login__container-form lg:items-end lg:align-end  xl:items-end xl:align-end'>
-						<Tabs onLoginSubmit={onLoginSubmit} errorLogin={errorLogin} />
+						<Tabs
+							onSubmitRegistration={onSubmitRegistration}
+							errorRegistration={errorRegistration}
+							onLoginSubmit={onLoginSubmit}
+							errorLogin={errorLogin}
+						/>
 					</div>
 				</div>
 				<ModalLoading isShowLoading={showModalLoading} />

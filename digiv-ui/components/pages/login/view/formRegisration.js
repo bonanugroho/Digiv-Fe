@@ -4,9 +4,10 @@ import { FormField } from "@components/element/form";
 import { validationReservationSchema } from "../scheme/validation";
 import digivApiServices from "@utils/httpRequest";
 import debounce from "@utils/debounce";
+import Alert from "@components/element/alert";
 
 export default function formRegisration(props) {
-	const { onSubmitReservation, errorReservation, dataUser } = props;
+	const { onSubmitRegistration, errorRegistration, dataUser } = props;
 	const [userDataReservation, setUserDatareservation] = useState({
 		email: "",
 		password: "",
@@ -14,11 +15,11 @@ export default function formRegisration(props) {
 		city: "",
 		nomer_telp: "",
 		name: "",
+		confirm_password: "",
 	});
 	const { digivApi } = digivApiServices();
 	const [provinceList, setProvinceList] = useState([]);
 	const [cityList, setCityList] = useState([]);
-
 
 	const handleChangeProvince = debounce(async (keyword) => {
 		const searchKeyword = keyword;
@@ -57,8 +58,8 @@ export default function formRegisration(props) {
 					<h1>Daftar</h1>
 				</div>
 				<div className='px-8 text-black'>
-					{errorReservation?.status && (
-						<Alert message={errorReservation?.message} />
+					{errorRegistration?.status && (
+						<Alert message={errorRegistration?.message} />
 					)}
 				</div>
 				<div className='py-4 px-8'>
@@ -66,7 +67,7 @@ export default function formRegisration(props) {
 						initialValues={userDataReservation}
 						validationSchema={validationReservationSchema}
 						enableReinitialize={true}
-						onSubmit={onSubmitReservation}>
+						onSubmit={onSubmitRegistration}>
 						{({ values, resetForm, handleSubmit }) => (
 							<form onSubmit={handleSubmit}>
 								<FormField
@@ -131,12 +132,20 @@ export default function formRegisration(props) {
 									className='mb-4'
 									withLabel={false}
 								/>
+								<FormField
+									name='confirm_password'
+									type='password'
+									label='Password'
+									placeholder='input confirm Password'
+									className='mb-4'
+									withLabel={false}
+								/>
 
 								<div className='w-full mt-8'>
 									<button
 										className=' w-full bg-yellow-500 text-black font-bold py-2 px-4 rounded'
 										type='submit'>
-										Reservasi
+										Register
 									</button>
 								</div>
 							</form>

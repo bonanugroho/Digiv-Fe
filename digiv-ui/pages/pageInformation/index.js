@@ -8,6 +8,7 @@ export default function preRegistration() {
 		<div className='min-w-full min-h-full  pre-registration-content'>
 			<Head>
 				<title>Adira VirtualTour</title>
+				<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			</Head>
 			<ModalProvider>
 				<PageInformation />

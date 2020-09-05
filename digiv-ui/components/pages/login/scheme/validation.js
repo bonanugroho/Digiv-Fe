@@ -33,7 +33,7 @@ export const validationReservationSchema = yup.object().shape({
 	name: yup.string().required(MESSAGES.REQUIRED_FIELD),
 	nomer_telp: yup
 		.string()
-		.matches(phoneRegExp,"Format nomer telepon anda salah")
+		.matches(phoneRegExp, "Format nomer telepon anda salah")
 		.required(MESSAGES.REQUIRED_FIELD),
 	province: yup.string().required(MESSAGES.REQUIRED_FIELD),
 	city: yup.string().required(MESSAGES.REQUIRED_FIELD),
@@ -42,4 +42,11 @@ export const validationReservationSchema = yup.object().shape({
 		.min(8, MESSAGES.PASSWORD_REQUIRED_LENGTH)
 		.max(20, MESSAGES.PASSWORD_REQUIRED_LENGTH)
 		.required(MESSAGES.REQUIRED_FIELD),
+	confirm_password: yup
+		.string()
+		.required()
+		.label("Confirm password")
+		.test("passwords-match", "Passwords Tidak sama", function (value) {
+			return this.parent.password === value;
+		}),
 });

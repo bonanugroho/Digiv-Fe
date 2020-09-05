@@ -9,7 +9,7 @@ import ModalLoading from "@components/element/modalLoading";
 import { ModalAlert, ModalContext } from "@components/element/modal";
 import logoDanamon from "@assets/images/logo/logo-danamon.png";
 import logoAdira from "@assets/images/logo/logo-adira.png";
-import logo30 from "@assets/images/logo/logo-adira-30.png";
+import logoAdiraAnniv from "@assets/images/logo/logo-adira-30.png";
 
 export default function PreRegistration() {
 	const { digivApi } = digivApiServices();
@@ -20,6 +20,11 @@ export default function PreRegistration() {
 
 	const onClcikSubmitVideo = () => {
 		setShowVideo(true)
+	}
+
+	const onEndedVideo = () => {
+		setShowModalLoading(true)
+		router.push('/login')
 	}
 
 	return (
@@ -35,7 +40,7 @@ export default function PreRegistration() {
 				<div>
 					<img
 						className='logo-30 hidden xl:block lg:block absolute '
-						src={logo30}></img>
+						src={logoAdiraAnniv}></img>
 				</div>
 				<div>
 					<img
@@ -50,7 +55,7 @@ export default function PreRegistration() {
 					</div>
 					<div className='h-full lg:min-h-screen xl:min-h-screen w-12/12 flex justify-center pre-registration__container-form lg:items-end lg:align-end  xl:items-end xl:align-end'>
 						<Information onClcikSubmitVideo={onClcikSubmitVideo} />
-						<VideoAnimation showVideo={showVideo}/>
+						<VideoAnimation showVideo={showVideo} onEndedVideo={onEndedVideo}/>
 					</div>
 				</div>
 

@@ -7,7 +7,12 @@ import FormRegister from "./formRegisration";
 import FormLogin from "./formLogin";
 
 export default function Tabs(props) {
-	const { onLoginSubmit, errorLogin } = props;
+	const {
+		onLoginSubmit,
+		errorLogin,
+		onSubmitRegistration,
+		errorRegistration,
+	} = props;
 	const [openTab, setOpenTab] = React.useState(1);
 	const [color, setColor] = useState("yellow");
 
@@ -82,12 +87,12 @@ export default function Tabs(props) {
 											<div
 												className={openTab === 1 ? "block" : "hidden"}
 												id='link1'>
-												<FormLogin onLoginSubmit={onLoginSubmit} />
+												<FormLogin onLoginSubmit={onLoginSubmit} errorLogin={errorLogin}/>
 											</div>
 											<div
 												className={openTab === 2 ? "block" : "hidden"}
 												id='link2'>
-												<FormRegister />
+												<FormRegister onSubmitRegistration={onSubmitRegistration} errorRegistration={errorRegistration} />
 											</div>
 											<div
 												className={openTab === 3 ? "block" : "hidden"}

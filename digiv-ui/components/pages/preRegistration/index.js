@@ -9,7 +9,7 @@ import ModalLoading from "@components/element/modalLoading";
 import { ModalAlert, ModalContext } from "@components/element/modal";
 import logoDanamon from "@assets/images/logo/logo-danamon.png";
 import logoAdira from "@assets/images/logo/logo-adira.png";
-import logo30 from "@assets/images/logo/logo-adira-30.png";
+import logoAdiraAnniv from "@assets/images/logo/logo-adira-30.png";
 
 export default function PreRegistration() {
 	const { digivApi } = digivApiServices();
@@ -111,8 +111,7 @@ export default function PreRegistration() {
 				full_name: values.name,
 				password: values.password,
 				phone_no: "+62" + values.nomer_telp,
-				unit_id: values.interest_car,
-				username: values.email,
+				email: values.email,
 			});
 			const {
 				data: { data, status_code },
@@ -168,7 +167,7 @@ export default function PreRegistration() {
 				<div>
 					<img
 						className='logo-30 hidden xl:block lg:block absolute '
-						src={logo30}></img>
+						src={logoAdiraAnniv}></img>
 				</div>
 				<div>
 					<img
