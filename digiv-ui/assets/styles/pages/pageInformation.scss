@@ -1,4 +1,43 @@
 @import "../helper/variable";
+
+.fullscreen-bg__video {
+    position: absolute;
+    left: 50%; /* % of surrounding element */
+    top: 50%;
+    // transform: translate(-50%, -50%);
+    max-width: none;
+    transform: translate(-75%, -40%);
+
+
+    @media (min-width:$screen-xl) {
+        transform: translate(-50%, -50%);
+
+        // object-position: 100% 64%;
+    }
+
+    @media (min-width:$screen-lg) and (max-width:$screen-xl) {
+        transform: translate(-54%, -50%);
+
+        // height: 90vh;
+
+        // object-position: 100% 64%;
+    }
+
+    @media (min-width:$screen-md) and (max-width:$screen-lg) {
+        transform: translate(-75%, -50%);
+
+        // height: 90vh;
+
+    }
+
+    @media (min-width:$screen-sm) and (max-width:$screen-md) {
+        transform: translate(-75%, -50%);
+
+    }
+
+}
+
+@import "../helper/variable";
 .pre-registration {
     &-content {
         background-image: url('../../images/background/bg-registration.png'); // background: linear-gradient(-25deg, #ff8a8a, #37e3ff);

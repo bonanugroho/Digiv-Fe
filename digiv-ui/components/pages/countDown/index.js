@@ -3,6 +3,8 @@ import DefaultLayout from "@components/layout/defaultLayout";
 import "@styles/pages/countdown.scss";
 import { useRouter } from "next/router";
 import logoEve from "@assets/images/logo/logo-ave.png";
+import logoAdira from "@assets/images/logo/logo-adira.png";
+import logoAdirathreety from "@assets/images/logo/logo-adira-30.png";
 
 export default function countDown() {
 	const [date, setDate] = useState("2020/09/09 23:55:00");
@@ -45,11 +47,21 @@ export default function countDown() {
 	return (
 		<main className='countdown-content min-w-full min-h-full '>
 			<div className='min-h-screen flex  flex-col justify-center items-center'>
-				<div className="flex justify-center flex-col items-center">
+				<div className='flex justify-center flex-col items-center'>
+					<div>
+						<img
+							className='absolute hidden xl:block lg:block md:block sm:block adira-30 w-1/12'
+							src={logoAdirathreety}></img>
+					</div>
+					<div>
+						<img
+							className='absolute top-0 right-0 w-4/12'
+							src={logoAdira}></img>
+					</div>
 					<img
-						className='countdonw-logo w-16 sm:w-16 md:w-42 lg:w-48'
+						className='countdonw-logo w-24 sm:w-20 md:w-42 lg:w-48'
 						src={logoEve}></img>
-					<h1 className='contdown-title'>Countdown</h1>
+					<h1 className='contdown-title color-blue-digiv '>COUNTDOWN</h1>
 				</div>
 
 				<div className='countdown-holder mb-16'>

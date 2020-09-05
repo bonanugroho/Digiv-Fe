@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 export default function ModalAlert(props) {
-	const { isOpen, type, message, onClose } = props;
+	const { isOpen, type, message, onClose ,onConfirm} = props;
 	return (
 		<>
 			{isOpen && (
@@ -38,7 +38,7 @@ export default function ModalAlert(props) {
 										className='w-full bg-blue-500 text-white active:bg-green-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1'
 										type='button'
 										style={{ transition: "all .15s ease" }}
-										onClick={onClose}>
+										onClick={onConfirm}>
 										Oke
 									</button>
 								</div>

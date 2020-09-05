@@ -10,3 +10,36 @@ export const loginValidation = yup.object().shape({
 	password: yup.string().required(MESSAGES.REQUIRED_FIELD),
 });
 
+export const validationRegistration = yup.object().shape({
+	email: yup
+		.string()
+		.email(MESSAGES.WRONG_EMAIL_FORMAT)
+		.required(MESSAGES.REQUIRED_FIELD),
+	name: yup.string().required(MESSAGES.REQUIRED_FIELD),
+	nomer_telp: yup
+		.number(MESSAGES.ALPHABET_ONLY)
+		.required(MESSAGES.REQUIRED_FIELD),
+	province: yup.string().required(MESSAGES.REQUIRED_FIELD),
+	city: yup.string().required(MESSAGES.REQUIRED_FIELD),
+	interest_car: yup.string().required(MESSAGES.REQUIRED_FIELD),
+	password: yup.string().required(MESSAGES.REQUIRED_FIELD),
+});
+
+export const validationReservationSchema = yup.object().shape({
+	email: yup
+		.string()
+		.email(MESSAGES.WRONG_EMAIL_FORMAT)
+		.required(MESSAGES.REQUIRED_FIELD),
+	name: yup.string().required(MESSAGES.REQUIRED_FIELD),
+	nomer_telp: yup
+		.string()
+		.matches(phoneRegExp,"Format nomer telepon anda salah")
+		.required(MESSAGES.REQUIRED_FIELD),
+	province: yup.string().required(MESSAGES.REQUIRED_FIELD),
+	city: yup.string().required(MESSAGES.REQUIRED_FIELD),
+	password: yup
+		.string()
+		.min(8, MESSAGES.PASSWORD_REQUIRED_LENGTH)
+		.max(20, MESSAGES.PASSWORD_REQUIRED_LENGTH)
+		.required(MESSAGES.REQUIRED_FIELD),
+});

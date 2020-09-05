@@ -1,20 +1,16 @@
 import Head from "next/head";
 import { useEffect } from "react";
-import LoginPage from "@components/pages/login";
+import PageInformation from "@components/pages/pageInformation";
 import { ModalProvider } from "@components/element/modal";
-
-export default function login() {
+export default function preRegistration() {
 	useEffect(() => {}, []);
 	return (
-		
-		<div className='min-w-full min-h-full  login-content'>
+		<div className='min-w-full min-h-full  pre-registration-content'>
 			<Head>
 				<title>Adira VirtualTour</title>
-				<meta name="viewport" content="width=device-width, initial-scale=1"/>
-
 			</Head>
 			<ModalProvider>
-				<LoginPage />
+				<PageInformation />
 			</ModalProvider>
 		</div>
 	);
