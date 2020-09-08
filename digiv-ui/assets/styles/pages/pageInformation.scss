@@ -1,0 +1,108 @@
+@import "../helper/variable";
+
+.fullscreen-bg-information {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 2;
+    max-width: none;
+
+}
+
+.fullscreen-bg-information__video {
+    position: absolute;
+    left: 50%;
+    /* % of surrounding element */
+    top: 50%;
+    // transform: translate(-50%, -50%);
+    max-width: none;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 177.77777778vh; /* 100 * 16 / 9 */
+    min-width: 100%;
+    min-height: 56.25vw; /* 100 * 9 / 16 */
+
+
+}
+
+.pre-registration {
+    &-content {
+        background-image: url('../../images/background/bg-registration.png'); // background: linear-gradient(-25deg, #ff8a8a, #37e3ff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-size: cover;
+        background-position-x: right;
+        background-position-y: bottom;
+
+        @media (min-width:1024px) and (max-width: 1280px) {
+            background-size: cover;
+            background-position: 100% 100%;
+
+        }
+    }
+
+    &__container-form {
+        @media (min-width: 1280px) {
+            padding-bottom: 4vh;
+            /* margin-left: 10vw; */
+            justify-content: flex-end;
+            margin-right: 8vw;
+        }
+    }
+}
+
+.content-reservation {
+    min-height: 464px;
+}
+
+.logo-sponsor {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+
+    &-bottom {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 15px;
+
+        img {
+            width: 40%
+        }
+
+
+        @media (min-width:$screen-xl) {
+            display: none;
+            // object-position: 100% 64%;
+        }
+
+        @media (min-width:$screen-lg) and (max-width:$screen-xl) {
+            display: none;
+
+            // height: 90vh;
+
+            // object-position: 100% 64%;
+        }
+
+        @media (min-width:$screen-md) and (max-width:$screen-lg) {
+
+            // height: 90vh;
+
+        }
+
+        @media (min-width:$screen-sm) and (max-width:$screen-md) {}
+    }
+}
+
+.logo-30 {
+    left: 20px;
+    top: 20px;
+    width: 150px;
+}

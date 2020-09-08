@@ -1,8 +1,10 @@
 import Head from "next/head";
 import { useEffect } from "react";
-import MainHall from "@components/pages/mainHall";
+import MainHallPage from "@components/pages/mainHall";
 import { ModalProvider } from "@components/element/modal";
-export default function preRegistration() {
+import withAuth from "@hoc/withAuth"
+
+const MainHall = function () {
 	useEffect(() => {}, []);
 	return (
 		<div className='min-w-screen min-h-screen'>
@@ -26,8 +28,17 @@ export default function preRegistration() {
 				<script src='static/foyer/initialVideo.js'></script>
 			</Head>
 			<ModalProvider>
-				<MainHall />
+				<MainHallPage />
 			</ModalProvider>
 		</div>
 	);
 }
+MainHall.getInitialProps = async (context) => {
+	const { req, res, query } = context
+	const isUserLoggedIn = req !== undefined && req.cookies['ATT']
+	console.log(req.cookies)
+	if (!isUserLoggedIn) res.redirect('/login')
+	return {}
+
+}
+export default MainHall

@@ -32,23 +32,27 @@ export default function Input (props){
 		isMandatory ? "is-mandatory" : "",
 	);
 
+	const contentClasses = classnames("w-full",type === 'numberphone'&&"relative")
+	const inputClasses = classnames("appearance-none border rounded w-full py-2 px-3 text-grey-darker",type === 'numberphone'&&"input-numberphone")
 	return (
 		<Fragment>
-			<div className="w-full">
+			<div className={contentClasses}>
 				{withLabel ?? (
 						<label className={labelClasses}>{label}</label>
 				)}
 			
 				<input
-					className='appearance-none border rounded w-full py-2 px-3 text-grey-darker'
+					className={inputClasses}
 					name={name}
-					type={type}
+					type={type === 'numberphone' ? 'number' :  type }
 					value={value}
 					placeholder={placeholder}
 					disabled={disabled}
 					{...attr}
 					{...field}
 				/>
+				{type === 'numberphone' && (<span className="input-numberphone__span">+62 | </span>)}
+				
 			</div>
 
 		</Fragment>

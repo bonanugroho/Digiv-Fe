@@ -8,7 +8,9 @@ const MESSAGE = {
     MIN_CHARACTER: 'minimal ${min} karakter',
     DATA_EXIST: 'Data yang anda masukkan telah terdaftar',
     DATA_EXIST_ERR_CONN: 'Gagal melakukan pemeriksaan data ke database',
-    PASSWORD_DONT_MATCH: 'Kata sandi tidak sesuai'
+    PASSWORD_DONT_MATCH: 'Kata sandi tidak sesuai',
+    PASSWORD_REQUIRED_LENGTH : 'Kata sandi tidak sesuai'
+
 }
 
 export default MESSAGE

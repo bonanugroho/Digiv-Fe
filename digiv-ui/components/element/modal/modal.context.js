@@ -47,7 +47,7 @@ export const ModalProvider = ({ children }) => {
                 {children}
                 <ModalAlert
                     isOpen={Boolean(confirmationState)}
-                    onSubmit={handleSubmit}
+                    onConfirm={handleSubmit}
                     onClose={handleClose}
                     {...confirmationState}
                 />

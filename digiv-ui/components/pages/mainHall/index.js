@@ -3,6 +3,7 @@ import DefaultLayout from "@components/layout/defaultLayout";
 import "@styles/pages/mainHall.scss";
 import imageHall from "@assets/images/background/hall.jpg";
 import { useRouter } from "next/router";
+import { useVideoStyle } from "@helper/hooks";
 
 export default function MainHall() {
 	const router = useRouter();
