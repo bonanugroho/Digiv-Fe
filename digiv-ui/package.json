@@ -6,6 +6,7 @@
     "dev": "dotenv -e .env.dev node server.js",
     "dev:watch": "dotenv -e .env.dev nodemon server.js",
     "build:prod": "dotenv -e .env.prod next build",
+    "build:staging": "dotenv -e .env.staging next build",
     "start:staging": "dotenv -e .env.staging node server.js",
     "build:dev": "dotenv -e .env.dev next build",
     "start:prod": "dotenv -e .env.prod node server.js",
