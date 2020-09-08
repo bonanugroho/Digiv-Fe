@@ -1,10 +1,10 @@
 import Head from "next/head";
 import { useEffect } from "react";
-import SobatFirstPage from "@components/pages/sobatFirst";
+import SobatThirdPage from "@components/pages/SobatThrid";
 import { ModalProvider } from "@components/element/modal";
 import withAuth from "@hoc/withAuth";
 
-const SobatFirst = function () {
+const SobatThird = function () {
 	return (
 		<div className='min-w-screen min-h-screen'>
 			<Head>
@@ -18,30 +18,27 @@ const SobatFirst = function () {
 				<title>Adira VirtualTour</title>
 				<link
 					rel='preload'
-					href='http://34.107.209.44/sobat-1/locale/en.txt?v=1599549887616'
+					href='http://34.107.209.44/sobat-3/locale/en.txt?v=1599551077870'
 					as='fetch'
 					crossOrigin='anonymous'
 				/>
 				<meta name='description' content='Virtual Tour' />
 				<meta name='theme-color' content='#33FF66' />
-				<link
-					rel='preload'
-					href='http://34.107.209.44/sobat-1/script.js?v=1599549887616'
-					as='script'
-				/>
-				<script src='http://34.107.209.44/sobat-1/lib/tdvplayer.js?v=1599549887616'></script>
-				<script src='http://34.107.209.44/sobat-1/script.js?v=1599549887616'></script>
-				<script src='static/sobatFirst/initialVideo.js'></script>
+                <link rel="preload" href="http://34.107.209.44/sobat-2/script.js?v=1599551077870" as="script"/>
+
+				<script src='http://34.107.209.44/sobat-3/lib/tdvplayer.js?v=1599551077870'></script>
+				<script src='http://34.107.209.44/sobat-3/script.js?v=1599551077870'></script>
+				<script src='static/sobatThird/initialVideo.js'></script>
 			</Head>
 			<ModalProvider>
-				<SobatFirstPage />
+				<SobatThirdPage />
 			</ModalProvider>
 		</div>
 	);
 };
-SobatFirst.getInitialProps = async props => {
+SobatThird.getInitialProps = async props => {
 	console.info('##### Congratulations! You are authorized! ######', props);
 	return {};
   };
   
-export default withAuth(SobatFirst);
+export default withAuth(SobatThird);

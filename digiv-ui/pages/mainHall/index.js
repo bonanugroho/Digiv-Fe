@@ -34,11 +34,6 @@ const MainHall = function () {
 	);
 }
 MainHall.getInitialProps = async (context) => {
-	const { req, res, query } = context
-	const isUserLoggedIn = req !== undefined && req.cookies['ATT']
-	console.log(req.cookies)
-	if (!isUserLoggedIn) res.redirect('/login')
 	return {}
-
 }
-export default MainHall
+export default withAuth(MainHall)

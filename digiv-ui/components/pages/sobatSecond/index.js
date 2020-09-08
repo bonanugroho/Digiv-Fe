@@ -1,12 +1,12 @@
 import React,{useEffect} from "react";
 import DefaultLayout from "@components/layout/defaultLayout";
-import "@styles/pages/sobatFirst.scss";
+import "@styles/pages/sobatSecond.scss";
 import { useRouter } from "next/router";
 
 export default function MainHall() {
 	const router = useRouter();
 	useEffect(() => {
-		window.initialVideoSobatFirst();
+		window.initialVideoSobatSecond();
 		window.callReactApps = (type,msg) => {
             console.log(type)
             console.log(msg)
@@ -27,7 +27,7 @@ export default function MainHall() {
 					<div className='preloacContainer2'></div>
 					<div className='preloacContainer3'></div>
 				</div>
-				<div id='sobatFirst-viewer' className="view"></div>
+				<div id='sobatSecond-viewer' className="view"></div>
 			</main>
 			{/* <main className='main-hall'>
 				<div>

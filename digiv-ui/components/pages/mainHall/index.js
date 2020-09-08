@@ -1,35 +1,52 @@
-import React,{useEffect} from "react";
+import React, { useEffect ,useState } from "react";
 import DefaultLayout from "@components/layout/defaultLayout";
 import "@styles/pages/mainHall.scss";
 import imageHall from "@assets/images/background/hall.jpg";
 import { useRouter } from "next/router";
+import ModalLoading from "@components/element/modalLoading";
+
 import { useVideoStyle } from "@helper/hooks";
+import { SOBAT_1 ,SOBAT_2 ,SOBAT_3 } from "@constants/translaterVideo";
 
 export default function MainHall() {
 	const router = useRouter();
+	const [showModalLoading, setShowModalLoading] = useState(false);
+
+	const translaterVista = (type, msg) => {
+		setShowModalLoading(true)
+		switch (msg) {
+			case SOBAT_1:
+				router.push("/sobat-1");
+				break;
+			case SOBAT_2:
+				router.push("/sobat-2");
+				break;
+			case SOBAT_3: 
+				router.push("/sobat-3");
+				break;
+		}
+	};
 	useEffect(() => {
 		window.initialVideoFoyer();
-		window.callReactApps = (type,msg) => {
-            console.log(type)
-            console.log(msg)
-            //handle message;
-          };
-        window.callAppsReact = (msg) => {
-            console.log(msg)
-        }
+		window.callReactApps = (type, msg) => {
+			translaterVista(type, msg);
+		};
+		window.callAppsReact = (msg) => {
+			console.log(msg);
+		};
 	}, []);
 	const onClickBoot = (path) => {
 		router.push(path);
 	};
 	return (
 		<DefaultLayout>
-			<main className="main">
-				<div id='preloadContainer' className="preloacContainer1">
+			<main className='main'>
+				<div id='preloadContainer' className='preloacContainer1'>
 					<div className='preloacContainer1'></div>
 					<div className='preloacContainer2'></div>
 					<div className='preloacContainer3'></div>
 				</div>
-				<div id='foyer-viewer' className="view"></div>
+				<div id='foyer-viewer' className='view'></div>
 			</main>
 			{/* <main className='main-hall'>
 				<div>
@@ -44,6 +61,7 @@ export default function MainHall() {
 					</div>
 				</div>
 			</main> */}
+			<ModalLoading isShowLoading={showModalLoading} />
 		</DefaultLayout>
 	);
 }
