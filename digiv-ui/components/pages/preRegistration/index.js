@@ -9,7 +9,7 @@ import ModalLoading from "@components/element/modalLoading";
 import { ModalAlert, ModalContext } from "@components/element/modal";
 import logoDanamon from "@assets/images/logo/logo-danamon.png";
 import logoAdira from "@assets/images/logo/logo-adira.png";
-import logoAdiraAnniv from "@assets/images/logo/logo-adira-30.png";
+import logoAdiraAnniv from "@assets/images/logo/logo-adira-anniv.png";
 
 export default function PreRegistration() {
 	const { digivApi } = digivApiServices();
@@ -73,11 +73,11 @@ export default function PreRegistration() {
 	const fetchCheckUser = async (values) => {
 		setShowModalLoading(true);
 		try {
-			const checkUser = await digivApi.get(`api/user/${values.email}`);
+			const checkUser = await digivApi.get(`api/user/check/${values.email}`);
 			const {
 				data: { data, status_code },
 			} = checkUser;
-			if (status_code === 104) {
+			if (!data.is_exist) {
 				setDataUser({
 					name: values.name,
 					email: values.email,
@@ -128,7 +128,7 @@ export default function PreRegistration() {
 			}
 		} catch (error) {
 			const data = error.response?.data;
-			let message = "error occured,pliss try again later";
+			let message = "error occured,please try again later";
 
 			if (data) {
 				const { status_code } = data;

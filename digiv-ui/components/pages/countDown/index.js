@@ -4,7 +4,7 @@ import "@styles/pages/countdown.scss";
 import { useRouter } from "next/router";
 import logoEve from "@assets/images/logo/logo-ave.png";
 import logoAdira from "@assets/images/logo/logo-adira.png";
-import logoAdirathreety from "@assets/images/logo/logo-adira-30.png";
+import logoAdirathreety from "@assets/images/logo/logo-adira-anniv.png";
 
 export default function countDown() {
 	const [date, setDate] = useState("2020/09/09 23:55:00");

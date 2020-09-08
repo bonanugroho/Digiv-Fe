@@ -6,6 +6,8 @@ import logoAve from "@assets/images/logo/logo-ave.png";
 import { useRouter } from "next/router";
 import digivApiServices from "@utils/httpRequest";
 import { ModalAlert, ModalContext } from "@components/element/modal";
+import Cookies from 'js-cookie'
+
 
 export default function login() {
 	const [showModalLoading, setShowModalLoading] = useState(true);
@@ -34,7 +36,11 @@ export default function login() {
 					message:
 						"Sukses login",
 				});
-				router.push("/");
+				Cookies.set('ATT',data.access_token)
+				Cookies.set('ART',data.refresh_token)
+				Cookies.set('AEU',data.email)
+				Cookies.set('AID',data.user_id)
+				router.push("/main-hall");
 			}
 		} catch (error) {
 			const data = error.response?.data;

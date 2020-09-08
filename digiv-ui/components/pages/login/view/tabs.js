@@ -1,8 +1,4 @@
 import React, { useState } from "react";
-import { FormField } from "@components/element/form";
-import Alert from "@components/element/alert";
-import { Formik } from "formik";
-import { loginValidation } from "../scheme/validation";
 import FormRegister from "./formRegisration";
 import FormLogin from "./formLogin";
 
@@ -31,8 +27,8 @@ export default function Tabs(props) {
 											className={
 												"text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
 												(openTab === 1
-													? "text-black bg-" + color + "-600"
-													: "text-" + color + "-600 bg-white")
+													? "text-black bg-" + color + "-500"
+													: "text-" + color + "-500 bg-white")
 											}
 											onClick={(e) => {
 												e.preventDefault();
@@ -49,8 +45,8 @@ export default function Tabs(props) {
 											className={
 												"text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
 												(openTab === 2
-													? "text-black bg-" + color + "-600"
-													: "text-" + color + "-600 bg-white")
+													? "text-black bg-" + color + "-500"
+													: "text-" + color + "-500 bg-white")
 											}
 											onClick={(e) => {
 												e.preventDefault();
@@ -67,8 +63,8 @@ export default function Tabs(props) {
 											className={
 												"text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
 												(openTab === 3
-													? "text-black bg-" + color + "-600"
-													: "text-" + color + "-600 bg-white")
+													? "text-black bg-" + color + "-500"
+													: "text-" + color + "-500 bg-white")
 											}
 											onClick={(e) => {
 												e.preventDefault();

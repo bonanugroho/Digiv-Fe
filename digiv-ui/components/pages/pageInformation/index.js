@@ -9,7 +9,7 @@ import ModalLoading from "@components/element/modalLoading";
 import { ModalAlert, ModalContext } from "@components/element/modal";
 import logoDanamon from "@assets/images/logo/logo-danamon.png";
 import logoAdira from "@assets/images/logo/logo-adira.png";
-import logoAdiraAnniv from "@assets/images/logo/logo-adira-30.png";
+import logoAdiraAnniv from "@assets/images/logo/logo-adira-anniv.png";
 
 export default function PreRegistration() {
 	const { digivApi } = digivApiServices();

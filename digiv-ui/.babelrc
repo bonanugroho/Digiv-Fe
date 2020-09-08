@@ -13,6 +13,8 @@
                     "@helper": "./helper",
                     "@constants": "./constants",
                     "@utils": "./utils",
+                    "@hoc": "./hoc",
+
                     // "@root": "./",
                     // "@redux": "./redux"
                 },
@@ -48,6 +50,8 @@
                             "@helper": "./helper",
                             "@utisl": "./utisl",
                             "@root": "./",
+                            "@hoc": "./hoc",
+
                             // "@redux": "./redux"
                         },
                         "extensions": [".js", ".scss"]
