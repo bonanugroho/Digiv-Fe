@@ -11,7 +11,7 @@ export default function modalDetailCar(props) {
 					<div
 						className='justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none'
 						onClick={onClose}>
-						<div className='  relative w-auto my-6 max-w-sm md:mx-auto lg:max-w-3xl xl:max-w-3xl'>
+						<div className='  relative max-h-screen w-auto my-6 max-w-sm md:mx-auto lg:max-w-3xl xl:max-w-3xl'>
 							{/*content*/}
 							<div className='modal-car-container border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none'>
 								{/*header*/}

@@ -25,10 +25,10 @@ module.exports = (config, options) => {
 			use: {
 				loader: "url-loader",
 				options: {
-                    limit: 100000,
-                    outputPath: '../public/assets/', // if you don't use ../ it will put it inside ".next" folder by default
-                    publicPath: '/assets/',
-                },
+					limit: 100000,
+					outputPath: "../public/assets/", // if you don't use ../ it will put it inside ".next" folder by default
+					publicPath: "/assets/",
+				},
 			},
 		},
 	];
@@ -42,7 +42,11 @@ module.exports = (config, options) => {
 
 	return {
 		...config,
-		plugins: [...config.plugins, new webpack.DefinePlugin(envObject)],
+		plugins: [
+			...config.plugins,
+			new webpack.DefinePlugin(envObject),
+			// new CaseSensitivePathsPlugin({debug: true}),
+		],
 		module: {
 			...config.module,
 			rules: [...config.module.rules, ...rules],

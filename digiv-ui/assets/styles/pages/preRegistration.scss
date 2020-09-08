@@ -1,11 +1,13 @@
+@import "../helper/variable";
 .pre-registration {
     &-content {
-        background-color: #ef5734;
-        background-image: url('../../images/background/bg-registration.jpg'); // background: linear-gradient(-25deg, #ff8a8a, #37e3ff);
+        background-image: url('../../images/background/bg-registration.png'); // background: linear-gradient(-25deg, #ff8a8a, #37e3ff);
         display: flex;
         justify-content: center;
         align-items: center;
         background-size: cover;
+        background-position-x: right;
+        background-position-y: bottom;
 
         @media (min-width:1024px) and (max-width: 1280px) {
             background-size: cover;
@@ -24,6 +26,56 @@
     }
 }
 
-.content-reservation{
+.content-reservation {
     min-height: 464px;
+}
+
+.logo-sponsor {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+
+    &-bottom {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom:15px;
+
+        img {
+            width: 40%
+        }
+
+
+        @media (min-width:$screen-xl) {
+            display:none;
+            // object-position: 100% 64%;
+        }
+
+        @media (min-width:$screen-lg) and (max-width:$screen-xl) {
+            display:none;
+
+            // height: 90vh;
+
+            // object-position: 100% 64%;
+        }
+
+        @media (min-width:$screen-md) and (max-width:$screen-lg) {
+          
+            // height: 90vh;
+
+        }
+
+        @media (min-width:$screen-sm) and (max-width:$screen-md) {
+        
+        }
+    }
+}
+
+.logo-30 {
+    left: 20px;
+    top: 20px;
+    width: 150px;
 }

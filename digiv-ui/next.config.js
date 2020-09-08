@@ -5,7 +5,7 @@ const tailwindCss = require("tailwindcss");
 const withWorkbox = require("next-with-workbox");
 const webpackBaseConfig = require("./config/webpack.base.conf");
 const webpack = require("webpack");
-const optimizedImages = require("next-optimized-images");
+const optimizedImages = require("@mrroll/next-optimized-images");
 require('dotenv').config()
 
 const nextConfig = {
@@ -20,18 +20,15 @@ const nextConfig = {
 const workboxConfig = withWorkbox({
 	workbox: {
 		swSrc: "worker.js",
-		// .
-		// ..
-		// ... any other workbox-webpack-plugin.InjectManifest option
+		
 	},
-	// .
-	// ..
-	// ... other Next.js config values
 });
 
 module.exports = withPlugins([
 	nextConfig,
-	[optimizedImages],
+	[optimizedImages, {
+        inlineImageLimit: -1
+    }],
 	[withSass],
 	[withCss],
 ]);
