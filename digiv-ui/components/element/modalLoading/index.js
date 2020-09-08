@@ -13,7 +13,7 @@ const modalLoading = (props) => {
 		bottom: "0",
 		left: "0",
 		right: "0",
-		zIndex: "999999",
+		zIndex: "9999999999",
 	};
 
 	const loadingContainer = {

@@ -1,0 +1,1 @@
+export const SOBAT_1 = "SOBAT1"
