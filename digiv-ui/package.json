@@ -7,6 +7,7 @@
     "dev:watch": "dotenv -e .env.dev nodemon server.js",
     "build:prod": "dotenv -e .env.prod next build",
     "start:staging": "dotenv -e .env.staging node server.js",
+    "build:staging": "dotenv -e .env.staging next build",
     "build:dev": "dotenv -e .env.dev next build",
     "start:prod": "dotenv -e .env.prod node server.js",
     "start:tes": "dotenv -e .env.prod node tes.js"
@@ -43,6 +44,7 @@
     "next-routes": "^1.4.2",
     "next-with-workbox": "^1.2.4",
     "node-sass": "^4.14.1",
+    "nookies": "^2.4.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "responsive-loader": "^2.1.1",

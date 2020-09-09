@@ -4,14 +4,32 @@ import "@styles/pages/mainHall.scss";
 import imageHall from "@assets/images/background/hall.jpg";
 import { useRouter } from "next/router";
 import ModalLoading from "@components/element/modalLoading";
-
+import digivApiServices from "@utils/httpRequest";
 import { useVideoStyle } from "@helper/hooks";
 import { SOBAT_1 ,SOBAT_2 ,SOBAT_3 } from "@constants/translaterVideo";
+import { parseCookies, setCookie, destroyCookie } from 'nookies'
 
-export default function MainHall() {
+export default function MainHall(props) {
+	console.log(props)
 	const router = useRouter();
 	const [showModalLoading, setShowModalLoading] = useState(false);
+	const { digivApi } = digivApiServices();
 
+
+	const fetchGetDataUserAuth  = async () => {
+		const cookies = parseCookies();
+
+		try{
+			const getDataUser = await digivApi.get(`api/user/${cookies['AEU']}`,{
+				headers : {
+					authorization :`Bearer ${cookies['ATT']}`
+				}
+			})
+		}catch(e){
+
+		}
+	
+	}
 	const translaterVista = (type, msg) => {
 		setShowModalLoading(true)
 		switch (msg) {
@@ -26,6 +44,7 @@ export default function MainHall() {
 				break;
 			default : 
 				setShowModalLoading(false)
+				fetchGetDataUserAuth()
 				break;
 
 		}

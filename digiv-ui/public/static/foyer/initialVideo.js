@@ -1,6 +1,6 @@
 (function () {
 	var deviceType = TDV.PlayerAPI.mobile ? "mobile" : "general";
-	var devicesUrl = { general: "http://34.107.209.44/foyer/script_general.js?v=1599543346863" };
+	var devicesUrl = { general: "https://stg-cdn-virtualexpo.adiraku.co.id/foyer/script_general.js?v=1599543346863" };
 	var url =
 		deviceType in devicesUrl ? devicesUrl[deviceType] : devicesUrl["general"];
 	if (typeof url == "object") {
@@ -26,15 +26,15 @@ function loadTour() {
 	settings.set(TDV.PlayerSettings.CONTAINER, document.getElementById("foyer-viewer"));
 	settings.set(
 		TDV.PlayerSettings.WEBVR_POLYFILL_URL,
-		"http://34.107.209.44/foyer/lib/WebVRPolyfill.js?v=1599592523952",
+		"https://stg-cdn-virtualexpo.adiraku.co.id/oyer/lib/WebVRPolyfill.js?v=1599592523952",
     );
-    settings.set(TDV.PlayerSettings.CURSORS_DIR_URL, 'http://34.107.209.44/foyer/lib/cursors');
-    settings.set(TDV.PlayerSettings.HLS_URL, "http://34.107.209.44/foyer/lib/Hls.js?v=1599592523952");
-    settings.set(TDV.PlayerSettings.WEBVR_POLYFILL_URL, 'http://34.107.209.44/foyer/lib/WebVRPolyfill.js?v=1599592523952');
+    settings.set(TDV.PlayerSettings.CURSORS_DIR_URL, 'https://stg-cdn-virtualexpo.adiraku.co.id/foyer/lib/cursors');
+    settings.set(TDV.PlayerSettings.HLS_URL, "https://stg-cdn-virtualexpo.adiraku.co.id/foyer/lib/Hls.js?v=1599592523952");
+    settings.set(TDV.PlayerSettings.WEBVR_POLYFILL_URL, 'https://stg-cdn-virtualexpo.adiraku.co.id/foyer/lib/WebVRPolyfill.js?v=1599592523952');
 
 	settings.set(TDV.PlayerSettings.QUERY_STRING_PARAMETERS, "v=1599543346863");
 
-	var devicesUrl = { general: "http://34.107.209.44/foyer/script_general.js?v=1599592523952" };
+	var devicesUrl = { general: "https://stg-cdn-virtualexpo.adiraku.co.id/foyer/script_general.js?v=1599592523952" };
 
 	tour = new TDV.Tour(settings, devicesUrl);
 	tour.bind(TDV.Tour.EVENT_TOUR_INITIALIZED, onVirtualTourInit);

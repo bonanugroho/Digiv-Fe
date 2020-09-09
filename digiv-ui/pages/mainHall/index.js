@@ -4,7 +4,8 @@ import MainHallPage from "@components/pages/mainHall";
 import { ModalProvider } from "@components/element/modal";
 import withAuth from "@hoc/withAuth"
 
-const MainHall = function () {
+const MainHall = function (props) {
+	console.log(props)
 	const versionVideo = '1599592523952';
 
 	return (
