@@ -5,14 +5,15 @@ import { ModalProvider } from "@components/element/modal";
 import withAuth from "@hoc/withAuth"
 
 const MainHall = function () {
-	useEffect(() => {}, []);
+	const versionVideo = '1599592523952';
+
 	return (
 		<div className='min-w-screen min-h-screen'>
 			<Head>
 				<title>Adira VirtualTour</title>
 				<link
 					rel='preload'
-					href='http://34.107.209.44/foyer/locale/en.txt?v=1597318843017'
+					href={`${ENV.ASSETS_URL}foyer/locale/en.txt?v=${versionVideo}`}
 					as='fetch'
 					crossOrigin='anonymous'
 				/>
@@ -20,11 +21,11 @@ const MainHall = function () {
 				<meta name='theme-color' content='#33FF66' />
 				<link
 					rel='preload'
-					href='http://34.107.209.44/foyer/script.js?v=1597318843017'
+					href={`${ENV.ASSETS_URL}foyer/script.js?v=${versionVideo}`}
 					as='script'
 				/>
-				<script src='http://34.107.209.44/foyer/lib/tdvplayer.js?v=1597318843017'></script>
-				<script src='http://34.107.209.44/foyer/script.js?v=1597318843017'></script>
+				<script src={`${ENV.ASSETS_URL}foyer/lib/tdvplayer.js?v=${versionVideo}`}></script>
+				<script src={`${ENV.ASSETS_URL}foyer/script.js?v=${versionVideo}`}></script>
 				<script src='static/foyer/initialVideo.js'></script>
 			</Head>
 			<ModalProvider>

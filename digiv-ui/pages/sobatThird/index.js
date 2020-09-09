@@ -5,6 +5,8 @@ import { ModalProvider } from "@components/element/modal";
 import withAuth from "@hoc/withAuth";
 
 const SobatThird = function () {
+	const versionVideo = '1599551077870';
+
 	return (
 		<div className='min-w-screen min-h-screen'>
 			<Head>
@@ -18,16 +20,16 @@ const SobatThird = function () {
 				<title>Adira VirtualTour</title>
 				<link
 					rel='preload'
-					href='http://34.107.209.44/sobat-3/locale/en.txt?v=1599551077870'
+					href={`${ENV.ASSETS_URL}sobat-3/locale/en.txt?v=${versionVideo}`}
 					as='fetch'
 					crossOrigin='anonymous'
 				/>
 				<meta name='description' content='Virtual Tour' />
 				<meta name='theme-color' content='#33FF66' />
-                <link rel="preload" href="http://34.107.209.44/sobat-2/script.js?v=1599551077870" as="script"/>
+                <link rel="preload" href={`${ENV.ASSETS_URL}sobat-3/script.js?v=${versionVideo}`} as="script"/>
 
-				<script src='http://34.107.209.44/sobat-3/lib/tdvplayer.js?v=1599551077870'></script>
-				<script src='http://34.107.209.44/sobat-3/script.js?v=1599551077870'></script>
+				<script src={`${ENV.ASSETS_URL}sobat-3/lib/tdvplayer.js?v=${versionVideo}`}></script>
+				<script src={`${ENV.ASSETS_URL}sobat-3/script.js?v=${versionVideo}`}></script>
 				<script src='static/sobatThird/initialVideo.js'></script>
 			</Head>
 			<ModalProvider>
