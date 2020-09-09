@@ -1,0 +1,53 @@
+//@import "../components/modalDetailCar.scss";
+@import "../pages/booth.scss";
+
+.car-link {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 100;
+    opacity: 0.7;
+    background-color: transparent;
+    &.mazda2-link {
+        margin-left: -17%;
+        margin-top: 2%;
+        width: 14%;
+        height: 10%;
+    }
+
+}
+
+.click-zoom{
+    //background-color: aqua;
+    width: 8vw;
+    height: 16vh;
+    position:absolute;
+    z-index: 2;
+    margin-top: 43vh;
+    margin-left: 17vw;
+    cursor: pointer;
+}
+
+.click-rundown{
+    cursor: pointer;
+    //background-color: aqua;
+    width: 8vw;
+    height: 16vh;
+    position:absolute;
+    z-index: 3;
+    margin-top: 43vh;
+    margin-left: 75vw;
+}
+
+.videoplayer{
+    z-index: 2;
+    position:relative;
+    margin-top: 23vh;
+    margin-left: 25vw;
+}
+
+.bg-image{
+    z-index: -1;
+    position:absolute;
+}

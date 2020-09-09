@@ -6,3 +6,6 @@ export {
 } from './modal.context'
 
 export { default as ModalDetailCar } from "./modalDetailCar";
+export { default as ModalTestDrive } from "./modalTestDrive";
+export { default as ModalBooking } from "./modalBookingForm";
+export { default as ModalLiveChat } from "./modalLiveChat";
