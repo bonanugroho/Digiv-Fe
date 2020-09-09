@@ -33,7 +33,7 @@ const SobatFirst = function () {
 				/>
 				<script src={`${ENV.ASSETS_URL}sobat-1/lib/tdvplayer.js?v=${versionVideo}`}></script>
 				<script src={`${ENV.ASSETS_URL}sobat-1/script.js?v=${versionVideo}`}></script>
-				<script src='static/sobatFirst/initialVideo.js'></script>
+				<script src={`${ENV.ASSETS_URL}sobat-1/initialVideo.js`}></script>
 			</Head>
 			<ModalProvider>
 				<SobatFirstPage />

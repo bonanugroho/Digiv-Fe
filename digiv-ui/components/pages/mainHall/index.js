@@ -24,6 +24,10 @@ export default function MainHall() {
 			case SOBAT_3: 
 				router.push("/sobat-3");
 				break;
+			default : 
+				setShowModalLoading(false)
+				break;
+
 		}
 	};
 	useEffect(() => {
@@ -39,7 +43,7 @@ export default function MainHall() {
 		router.push(path);
 	};
 	return (
-		<DefaultLayout>
+		<DefaultLayout breadcumb={[{name: 'Main Hall',url:'#'}]}>
 			<main className='main'>
 				<div id='preloadContainer' className='preloacContainer1'>
 					<div className='preloacContainer1'></div>

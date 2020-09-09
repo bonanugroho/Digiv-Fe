@@ -1,33 +1,37 @@
-import React,{useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import DefaultLayout from "@components/layout/defaultLayout";
 import "@styles/pages/sobatFirst.scss";
 import { useRouter } from "next/router";
+import ModalLoading from "@components/element/modalLoading";
 
 export default function MainHall() {
 	const router = useRouter();
+	const [showModalLoading, setShowModalLoading] = useState(true);
+
 	useEffect(() => {
 		window.initialVideoSobatFirst();
-		window.callReactApps = (type,msg) => {
-            console.log(type)
-            console.log(msg)
-            //handle message;
-          };
-        window.callAppsReact = (msg) => {
-            console.log(msg)
-        }
+		window.callReactApps = (type, msg) => {
+			console.log(type);
+			console.log(msg);
+			//handle message;
+		};
+		window.callAppsReact = (msg) => {
+			console.log(msg);
+		};
+		setShowModalLoading(false);
 	}, []);
 	const onClickBoot = (path) => {
 		router.push(path);
 	};
 	return (
-		<DefaultLayout>
-			<main className="main">
-				<div id='preloadContainer' className="preloacContainer1">
+		<DefaultLayout  breadcumb={[{name: 'Main Hall',url:'/main-hall'},{name: 'Sobat 1',url:'#'}]}>
+			<main className='main'>
+				<div id='preloadContainer' className='preloacContainer1'>
 					<div className='preloacContainer1'></div>
 					<div className='preloacContainer2'></div>
 					<div className='preloacContainer3'></div>
 				</div>
-				<div id='sobatFirst-viewer' className="view"></div>
+				<div id='sobatFirst-viewer' className='view'></div>
 			</main>
 			{/* <main className='main-hall'>
 				<div>
@@ -42,6 +46,7 @@ export default function MainHall() {
 					</div>
 				</div>
 			</main> */}
+			<ModalLoading isShowLoading={showModalLoading} />
 		</DefaultLayout>
 	);
 }

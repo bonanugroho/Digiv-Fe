@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useEffect } from "react";
-import SobatSecondPage from "@components/pages/SobatSecond";
+import SobatSecondPage from "@components/pages/sobatSecond";
 import { ModalProvider } from "@components/element/modal";
 import withAuth from "@hoc/withAuth";
 
@@ -34,7 +34,7 @@ const SobatSecond = function () {
 
 				<script src={`${ENV.ASSETS_URL}sobat-2/lib/tdvplayer.js?v=${versionVideo}`} ></script>
 				<script src={`${ENV.ASSETS_URL}sobat-2/script.js?v=${versionVideo}`}></script>
-				<script src='static/sobatSecond/initialVideo.js'></script>
+				<script src={`${ENV.ASSETS_URL}sobat-2/initialVIdeo.js`}></script>
 			</Head>
 			<ModalProvider>
 				<SobatSecondPage />

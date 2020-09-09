@@ -26,7 +26,7 @@ const MainHall = function () {
 				/>
 				<script src={`${ENV.ASSETS_URL}foyer/lib/tdvplayer.js?v=${versionVideo}`}></script>
 				<script src={`${ENV.ASSETS_URL}foyer/script.js?v=${versionVideo}`}></script>
-				<script src='static/foyer/initialVideo.js'></script>
+				<script src={`${ENV.ASSETS_URL}foyer/initialVideo.js`}></script>
 			</Head>
 			<ModalProvider>
 				<MainHallPage />

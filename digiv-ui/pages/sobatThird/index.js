@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useEffect } from "react";
-import SobatThirdPage from "@components/pages/SobatThrid";
+import SobatThirdPage from "@components/pages/sobatThrid";
 import { ModalProvider } from "@components/element/modal";
 import withAuth from "@hoc/withAuth";
 
@@ -30,7 +30,7 @@ const SobatThird = function () {
 
 				<script src={`${ENV.ASSETS_URL}sobat-3/lib/tdvplayer.js?v=${versionVideo}`}></script>
 				<script src={`${ENV.ASSETS_URL}sobat-3/script.js?v=${versionVideo}`}></script>
-				<script src='static/sobatThird/initialVideo.js'></script>
+				<script src={`${ENV.ASSETS_URL}sobat-3/initialVideo.js`}></script>
 			</Head>
 			<ModalProvider>
 				<SobatThirdPage />

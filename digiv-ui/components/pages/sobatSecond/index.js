@@ -20,7 +20,7 @@ export default function MainHall() {
 		router.push(path);
 	};
 	return (
-		<DefaultLayout>
+		<DefaultLayout breadcumb={[{name: 'Main Hall',url:'/main-hall'},{name: 'Sobat 2',url:'#'}]}>
 			<main className="main">
 				<div id='preloadContainer' className="preloacContainer1">
 					<div className='preloacContainer1'></div>

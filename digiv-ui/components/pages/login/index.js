@@ -131,7 +131,7 @@ export default function login() {
 		<>
 			<div className='fullscreen-bg'>
 				<video loop muted autoPlay className='fullscreen-bg__video'>
-					<source src={`${ENV.ASSETS_URL}/video/bg-registration.mp4`} type='video/mp4' />
+					<source src={`${ENV.ASSETS_URL}video/bg-registration.mp4`} type='video/mp4' />
 				</video>
 			</div>
 			<div className='relative font-sans antialiased bg-grey-lightest w-full h-full'>
