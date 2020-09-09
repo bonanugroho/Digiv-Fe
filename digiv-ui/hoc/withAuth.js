@@ -26,8 +26,6 @@ const getAuthData = async (ctx) => {
 	} catch (e) {
     console.log(e)
   }
-  console.log('ashdjashd')
-
 	return null;
 };
 
