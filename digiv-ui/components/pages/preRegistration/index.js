@@ -21,17 +21,6 @@ export default function PreRegistration() {
 	const [errorReservation, setErrorReservation] = useState({});
 	const openModalContext = useContext(ModalContext);
 	const [firebaseApp, setFirebaseApp] = useState(null);
-	const messages = [
-		{
-			text: "Hello there",
-			id: "1",
-			sender: {
-				name: "Ironman",
-				uid: "user1",
-				avatar: "https://data.cometchat.com/assets/images/avatars/ironman.png",
-			},
-		},
-	];
 
 	const onClickSignInGoogle = async () => {
 		// const firebaseInstance = await loadFireBase ()
