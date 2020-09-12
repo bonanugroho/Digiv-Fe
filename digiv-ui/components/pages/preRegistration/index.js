@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import "@styles/pages/preRegistration.scss";
-// import fire from "../../../utils/firebase";
+import loadFirebase from "@utils/firebase";
 import { useRouter } from "next/router";
 import FormRegister from "./view/formRegister";
 import FormReservation from "./view/formReservation";
@@ -19,6 +19,7 @@ export default function PreRegistration() {
 	const [errorRegistration, setErrorRegistration] = useState({});
 	const [errorReservation, setErrorReservation] = useState({});
 	const openModalContext = useContext(ModalContext);
+	const [firebaseApp,setFirebaseApp] = useState(null);
 	const onClickSignInGoogle = async () => {
 		// const firebaseInstance = await loadFireBase ()
 
@@ -157,19 +158,29 @@ export default function PreRegistration() {
 
 	useEffect(() => {
 		if (window !== undefined) {
-			console.log(firebase)
-			// fire
-			// 	.firestore()
-			// 	.collection("blog")
-			// 	.onSnapshot((snap) => {
-			// 		const blogs = snap.docs.map((doc) => ({
-			// 			id: doc.id,
-			// 			...doc.data(),
-			// 		}));
-			// 		console.log(blogs);
-			// 	});
+			setFirebaseApp(loadFirebase())
 		}
 	}, []);
+
+	useEffect(() => {
+		if(firebaseApp){
+			const  db = firebaseApp.firestore
+			db.collection("user").add({
+				first: "Ada",
+				last: "Lovelace",
+				born: 1815
+			})
+			.then(function(docRef) {
+				console.log("Document written with ID: ", docRef.id);
+			})
+			.catch(function(error) {
+				console.error("Error adding document: ", error);
+			});
+
+
+
+		}
+	}, [firebaseApp]);
 
 	return (
 		<>

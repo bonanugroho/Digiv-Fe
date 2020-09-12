@@ -1,28 +1,40 @@
-const firebase = require("firebase/app");
+// const firebase = require("firebase/app");
 // Required for side-effects
 // require("firebase/firestore");
 // If you enabled Analytics in your project, add the Firebase SDK for Analytics
 
-const config = {
-    apiKey: "AIzaSyC-TccPfWcbztjo6h-klcvMaIJxKgMjCOU",
-    authDomain: "adiravirtualexpo.firebaseapp.com",
-    databaseURL: "https://adiravirtualexpo.firebaseio.com",
-    projectId: "adiravirtualexpo",
-    storageBucket: "adiravirtualexpo.appspot.com",
-    messagingSenderId: "549914123489",
-    appId: "1:549914123489:web:c831afed7e6b78fe9baba0",
-    measurementId: "G-67635TDCPH"
-};
-try {
-	firebase.initializeApp(config);
-} catch (err) {
-	if (!/already exists/.test(err.message)) {
-		console.error("Firebase initialization error", err.stack);
-	}
-}
-const fire = firebase;
+const loadFireBase = () => {
+	const config = {
+		apiKey: "AIzaSyDAwBYKAI54MQ18Ff8yNxM9e2cK9JAxGZc",
+		authDomain: "digvadiravirtual.firebaseapp.com",
+		databaseURL: "https://digvadiravirtual.firebaseio.com",
+		projectId: "digvadiravirtual",
+		storageBucket: "digvadiravirtual.appspot.com",
+		messagingSenderId: "166270326709",
+		appId: "1:166270326709:web:a8a01968a3879328762bfc",
+		measurementId: "G-YYH7Z7P0D1",
+	};
+	if (typeof window !== "undefined") {
+		try {
+			firebase.initializeApp(config);
+		} catch (err) {
+			if (!/already exists/.test(err.message)) {
+				console.error("Firebase initialization error", err.stack);
+			}
+		}
 
-export default fire;
+		return {
+			firebase: firebase,
+			firestore: firebase.firestore(),
+		};
+	}
+	return {
+		firebase: {},
+		firestore: {},
+	};
+};
+
+export default loadFireBase;
 
 // const config = {
 // 	apiKey: ENV.FIREBASE_API_KEY,
