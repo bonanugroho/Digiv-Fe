@@ -10,6 +10,7 @@ import { ModalAlert, ModalContext } from "@components/element/modal";
 import logoDanamon from "@assets/images/logo/logo-danamon.png";
 import logoAdira from "@assets/images/logo/logo-adira.png";
 import logoAdiraAnniv from "@assets/images/logo/logo-adira-anniv.png";
+// import  ChatBox  from "@components/element/chatBox";
 
 export default function PreRegistration() {
 	const { digivApi } = digivApiServices();
@@ -19,7 +20,19 @@ export default function PreRegistration() {
 	const [errorRegistration, setErrorRegistration] = useState({});
 	const [errorReservation, setErrorReservation] = useState({});
 	const openModalContext = useContext(ModalContext);
-	const [firebaseApp,setFirebaseApp] = useState(null);
+	const [firebaseApp, setFirebaseApp] = useState(null);
+	const messages = [
+		{
+			text: "Hello there",
+			id: "1",
+			sender: {
+				name: "Ironman",
+				uid: "user1",
+				avatar: "https://data.cometchat.com/assets/images/avatars/ironman.png",
+			},
+		},
+	];
+
 	const onClickSignInGoogle = async () => {
 		// const firebaseInstance = await loadFireBase ()
 
@@ -156,31 +169,28 @@ export default function PreRegistration() {
 		}
 	};
 
-	useEffect(() => {
-		if (window !== undefined) {
-			setFirebaseApp(loadFirebase())
-		}
-	}, []);
+	// useEffect(() => {
+	// 	if (window !== undefined) {
+	// 		setFirebaseApp(loadFirebase())
+	// 	}
+	// }, []);
 
-	useEffect(() => {
-		if(firebaseApp){
-			const  db = firebaseApp.firestore
-			db.collection("user").add({
-				first: "Ada",
-				last: "Lovelace",
-				born: 1815
-			})
-			.then(function(docRef) {
-				console.log("Document written with ID: ", docRef.id);
-			})
-			.catch(function(error) {
-				console.error("Error adding document: ", error);
-			});
-
-
-
-		}
-	}, [firebaseApp]);
+	// useEffect(() => {
+	// 	if(firebaseApp){
+	// 		const  db = firebaseApp.firestore
+	// 		db.collection("user").add({
+	// 			first: "Ada",
+	// 			last: "Lovelace",
+	// 			born: 1815
+	// 		})
+	// 		.then(function(docRef) {
+	// 			console.log("Document written with ID: ", docRef.id);
+	// 		})
+	// 		.catch(function(error) {
+	// 			console.error("Error adding document: ", error);
+	// 		});
+	// 	}
+	// }, [firebaseApp]);
 
 	return (
 		<>
@@ -210,11 +220,11 @@ export default function PreRegistration() {
 					</div>
 					<div className='h-full lg:min-h-screen xl:min-h-screen w-12/12 flex justify-center pre-registration__container-form lg:items-end lg:align-end  xl:items-end xl:align-end'>
 						{/* {dataUser ? ( */}
-							<FormReservation
-								errorReservation={errorReservation}
-								onSubmitReservation={onSubmitReservation}
-								dataUser={dataUser}
-							/>
+						<FormReservation
+							errorReservation={errorReservation}
+							onSubmitReservation={onSubmitReservation}
+							dataUser={dataUser}
+						/>
 						{/* ) : (
 							<FormRegister
 								onClickSignInGoogle={onClickSignInGoogle}
@@ -225,7 +235,7 @@ export default function PreRegistration() {
 						)} */}
 					</div>
 				</div>
-
+				{/* <ChatBox messages={messages} /> */}
 				<ModalLoading isShowLoading={showModalLoading} />
 			</div>
 			<div className='logo-sponsor hidden lg:block xl:block md:hidden sm:hidden absolute bottom-0 left-0'>
