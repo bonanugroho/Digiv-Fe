@@ -5,7 +5,7 @@ import { ModalProvider } from "@components/element/modal";
 import withAuth from "@hoc/withAuth";
 
 const SobatThird = function () {
-	const versionVideo = '1599551077870';
+	const versionVideo = '1599859531608';
 
 	return (
 		<div className='min-w-screen min-h-screen'>

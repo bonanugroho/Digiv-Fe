@@ -1,4 +1,4 @@
-import React, { useEffect ,useState } from "react";
+import React, { useEffect, useState } from "react";
 import DefaultLayout from "@components/layout/defaultLayout";
 import "@styles/pages/mainHall.scss";
 import imageHall from "@assets/images/background/hall.jpg";
@@ -6,53 +6,41 @@ import { useRouter } from "next/router";
 import ModalLoading from "@components/element/modalLoading";
 import digivApiServices from "@utils/httpRequest";
 import { useVideoStyle } from "@helper/hooks";
-import { SOBAT_1 ,SOBAT_2 ,SOBAT_3 } from "@constants/translaterVideo";
-import { parseCookies, setCookie, destroyCookie } from 'nookies'
+import translaterVista from "@helper/translaterVista";
+import { parseCookies, setCookie, destroyCookie } from "nookies";
 
 export default function MainHall(props) {
-	console.log(props)
+	console.log(props);
 	const router = useRouter();
 	const [showModalLoading, setShowModalLoading] = useState(false);
 	const { digivApi } = digivApiServices();
 
-
-	const fetchGetDataUserAuth  = async () => {
+	const fetchGetDataUserAuth = async () => {
 		const cookies = parseCookies();
 
-		try{
-			const getDataUser = await digivApi.get(`api/user/${cookies['AEU']}`,{
-				headers : {
-					authorization :`Bearer ${cookies['ATT']}`
-				}
-			})
-		}catch(e){
-
-		}
-	
-	}
-	const translaterVista = (type, msg) => {
-		setShowModalLoading(true)
-		switch (msg) {
-			case SOBAT_1:
-				router.push("/sobat-1");
-				break;
-			case SOBAT_2:
-				router.push("/sobat-2");
-				break;
-			case SOBAT_3: 
-				router.push("/sobat-3");
-				break;
-			default : 
-				setShowModalLoading(false)
-				fetchGetDataUserAuth()
-				break;
-
+		try {
+			const getDataUser = await digivApi.get(`api/user/${cookies["AEU"]}`, {
+				headers: {
+					authorization: `Bearer ${cookies["ATT"]}`,
+				},
+			});
+		} catch (e) {}
+	};
+	const onEventVista = (type, msg) => {
+		console.log(type, msg)
+		setShowModalLoading(true);
+		const pathUrl = translaterVista(type, msg);
+		console.log(pathUrl)
+		if (pathUrl) {
+			router.push(pathUrl)
+		} else {
+			setShowModalLoading(false);
 		}
 	};
 	useEffect(() => {
 		window.initialVideoFoyer();
 		window.callReactApps = (type, msg) => {
-			translaterVista(type, msg);
+			onEventVista(type, msg);
 		};
 		window.callAppsReact = (msg) => {
 			console.log(msg);
@@ -62,7 +50,7 @@ export default function MainHall(props) {
 		router.push(path);
 	};
 	return (
-		<DefaultLayout breadcumb={[{name: 'Main Hall',url:'#'}]}>
+		<DefaultLayout breadcumb={[{ name: "Main Hall", url: "#" }]}>
 			<main className='main'>
 				<div id='preloadContainer' className='preloacContainer1'>
 					<div className='preloacContainer1'></div>

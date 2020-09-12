@@ -6,3 +6,4 @@ export {
 } from './modal.context'
 
 export { default as ModalDetailCar } from "./modalDetailCar";
+export { default as ModalDetailProgram } from "./modalDetailProgram";

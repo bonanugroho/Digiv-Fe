@@ -3,16 +3,26 @@ import DefaultLayout from "@components/layout/defaultLayout";
 import "@styles/pages/sobatFirst.scss";
 import { useRouter } from "next/router";
 import ModalLoading from "@components/element/modalLoading";
+import translaterVista from "@helper/translaterVista";
 
 export default function MainHall() {
 	const router = useRouter();
 	const [showModalLoading, setShowModalLoading] = useState(true);
 
+	const onEventVista = (type, msg) => {
+		setShowModalLoading(true);
+		const pathUrl = translaterVista(type, msg);
+				if (pathUrl) {
+			router.push(pathUrl)
+		} else {
+			setShowModalLoading(false);
+		}
+	};
+
 	useEffect(() => {
 		window.initialVideoSobatFirst();
 		window.callReactApps = (type, msg) => {
-			console.log(type);
-			console.log(msg);
+			onEventVista(type, msg);
 			//handle message;
 		};
 		window.callAppsReact = (msg) => {

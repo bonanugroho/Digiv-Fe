@@ -1,7 +1,7 @@
 (function()
 {
     var deviceType = TDV.PlayerAPI.mobile ? 'mobile' : 'general';
-    var devicesUrl = {"general":"https://stg-cdn-virtualexpo.adiraku.co.id/sobat-3/script_general.js?v=1599551077870"};
+    var devicesUrl = {"general":"https://stg-cdn-virtualexpo.adiraku.co.id/sobat-1/script_general.js?v=1599855891915"};
     var url = deviceType in devicesUrl ? devicesUrl[deviceType] : devicesUrl['general'];
     if(typeof url == "object") {
         var orient = TDV.PlayerAPI.getOrientation();
@@ -22,16 +22,16 @@ var tour;
 
 function loadTour()
 {
-    if(tour) return;
+    if(tour) return;    
 
     var settings = new TDV.PlayerSettings();
-    settings.set(TDV.PlayerSettings.CONTAINER, document.getElementById('sobatThrid-viewer'));
-    settings.set(TDV.PlayerSettings.WEBVR_POLYFILL_URL, 'https://stg-cdn-virtualexpo.adiraku.co.id/sobat-3/lib/WebVRPolyfill.js?v=1599551077870');
-    settings.set(TDV.PlayerSettings.HLS_URL, 'https://stg-cdn-virtualexpo.adiraku.co.id/sobat-3/lib/Hls.js?v=1599551077870');
-    settings.set(TDV.PlayerSettings.QUERY_STRING_PARAMETERS, 'v=1599551077870');
-    settings.set(TDV.PlayerSettings.CURSORS_DIR_URL, 'https://stg-cdn-virtualexpo.adiraku.co.id/sobat-3/lib/cursors');
+    settings.set(TDV.PlayerSettings.CONTAINER, document.getElementById('sobatFirst-viewer'));
+    settings.set(TDV.PlayerSettings.WEBVR_POLYFILL_URL, 'https://stg-cdn-virtualexpo.adiraku.co.id/sobat-1/lib/WebVRPolyfill.js?v=1599855891915');
+    settings.set(TDV.PlayerSettings.HLS_URL, 'https://stg-cdn-virtualexpo.adiraku.co.id/sobat-1/lib/Hls.js?v=1599855891915');
+    settings.set(TDV.PlayerSettings.QUERY_STRING_PARAMETERS, 'v=1599593952162');
+    settings.set(TDV.PlayerSettings.CURSORS_DIR_URL, 'https://stg-cdn-virtualexpo.adiraku.co.id/sobat-1/lib/cursors');
 
-    var devicesUrl = {"general":"https://stg-cdn-virtualexpo.adiraku.co.id/sobat-3/script_general.js?v=1599551077870"};
+    var devicesUrl = {"general":"https://stg-cdn-virtualexpo.adiraku.co.id/sobat-1/script_general.js?v=1599855891915"};
 
     tour = new TDV.Tour(settings, devicesUrl);
     tour.bind(TDV.Tour.EVENT_TOUR_INITIALIZED, onVirtualTourInit);
@@ -178,7 +178,7 @@ function onLoad() {
                 {
                     setTimeout(function()
                     {
-                        var viewer = document.querySelector('#sobatThrid-viewer');
+                        var viewer = document.querySelector('#sobatFirst-viewer');
                         var scale = window.innerWidth / document.documentElement.clientWidth;
                         var width = document.documentElement.clientWidth;
                         var height = Math.round(window.innerHeight / scale);
@@ -280,4 +280,6 @@ function getParams(params) {
     var queryDict = {}; params.split("&").forEach(function(item) {var k = item.split("=")[0], v = decodeURIComponent(item.split("=")[1]);queryDict[k.toLowerCase()] = v});
     return queryDict;
 }
-window.initialVideoSobatThird = onLoad
+
+
+window.initialVideoSobatFirst = onLoad;

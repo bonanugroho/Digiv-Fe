@@ -72,19 +72,26 @@ const digivApiServices = (ctx) => {
 					});
 				}
 				config.headers.authorization = `Bearer ${getRefreshToken.access_token}`;
+
 				return axios(config);
 			} else {
-				if (ctx.res) {
-					ctx.res?.writeHead(302, {
-						Location: "/login",
-					});
-					ctx.res?.end();
-				}
-				Router.replace("/login");
-			}
+				console.log(config)
+				if(config.url !== 'api/auth/login'){
+					if (ctx) {
+						ctx.res?.writeHead(302, {
+							Location: "/login",
+						});
+						ctx.res?.end();
+					}
+					Router.replace("/login");
 
+				}
+			
+			}
 			// window.location.href="/";
 		}
+		// console.log('asdasdasd',error.response)
+
 		return Promise.reject(error);
 	};
 

@@ -12,7 +12,7 @@ export default function headerNav(props) {
 		<div className='w-auto w-full'>
 			<nav className=' flex items-center justify-between flex-wrap bg-yellow-500 p-6 '>
 				<div className='flex items-center flex-shrink-0 text-white mr-6'>
-					<img className='w-24 ' src='logo/adira_logo.svg'></img>
+					<img className='w-24 ' src='/logo/adira_logo.svg'></img>
 				</div>
 				<div className='block lg:hidden'>
 					<button
