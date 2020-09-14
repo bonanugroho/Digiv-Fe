@@ -78,7 +78,7 @@ export default function Tabs(props) {
 										</a>
 									</li>
 								</ul>
-								<div className='relative flex flex-col min-w-0 break-words  w-full mb-6 shadow-lg rounded'>
+								<div className='relative flex flex-col min-w-0 break-words  w-full mb-6 shadow-lg rounded bg-white-overlay xl:bg-transparent lg:bg-transparent  '>
 									<div className='px-2 py-5 flex-auto'>
 										<div className='tab-content tab-space'>
 											<div

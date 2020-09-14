@@ -8,7 +8,7 @@ export default function FormLogin(props) {
 
 	return (
 		<>
-			<div className='py-4 text-black text-4xl font-bold text-white'>
+			<div className='py-4 px-4 text-black text-4xl font-bold xl:text-white  lg:text-white'>
 				<h1>Login</h1>
 			</div>
 			<div className='px-4 text-black'>

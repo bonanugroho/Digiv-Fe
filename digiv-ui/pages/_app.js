@@ -6,7 +6,7 @@ import Router from "next/router";
 import { GTMPageView } from "@utils/gtm";
 import { config } from "@fortawesome/fontawesome-svg-core"; // 👈
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import 'react-chatbox-component/dist/style.css';
+// import 'react-chatbox-component/dist/style.css';
  // 👈
 config.autoAddCss = false; // 👈// Import the CSS
 
