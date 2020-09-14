@@ -7,7 +7,7 @@ import logoAdira from "@assets/images/logo/logo-adira.png";
 import logoAdirathreety from "@assets/images/logo/logo-adira-anniv.png";
 
 export default function countDown() {
-	const [date, setDate] = useState("2020/09/09 23:55:00");
+	const [date, setDate] = useState("2020/09/25 06:00:00");
 	const [timeLeft, setTimeLeft] = useState([]);
 	const [interval, setStateInterval] = useState();
 	const router = useRouter();
@@ -75,11 +75,11 @@ export default function countDown() {
 						<div className='countdown__item countdown__item_title'>Detik</div>
 					</div>
 				</div>
-				<button
+				{/* <button
 					onClick={goToReservation}
-					className='bg-transparent hover:bg-white text-white font-semibold hover:text-yellow-500 py-2 px-4 border border-bg-white hover:border-transparent rounded text-xl'>
+					className='bg-yellow-500 text-black  font-semibold py-2 px-4 border border-bg-white  rounded text-xl'>
 					Pre Registration
-				</button>
+				</button> */}
 			</div>
 		</main>
 	);
